@@ -6,7 +6,10 @@
 
 namespace Learning\IsaacLearning\Model;
 
-class Task extends \Magento\Framework\Model\AbstractModel
+use \Magento\Framework\Model\AbstractModel;
+use \Learning\IsaacLearning\Model\ResourceModel\Task as TaskResource;
+
+class Task extends AbstractModel
 {
     const PRIORITY_LOW = 1;
     const PRIORITY_MEDIUM = 2;
@@ -22,10 +25,10 @@ class Task extends \Magento\Framework\Model\AbstractModel
 
     public function _construct()
     {
-        $this->_init('Learning\IsaacLearning\Model\ResourceModel\Task');
+        $this->_init(TaskResource::class);
     }
 
-    public function getPriorityOptions()
+    public static function getPriorityOptions()
     {
         return self::$priorityOptions;
     }
