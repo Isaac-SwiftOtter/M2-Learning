@@ -16,7 +16,7 @@ class Task extends AbstractModel
     const PRIORITY_HIGH = 3;
     const PRIORITY_CRITICAL = 4;
 
-    protected static $priorityOptions = [
+    private static $priorityOptions = [
         self::PRIORITY_LOW => 'Low',
         self::PRIORITY_MEDIUM => 'Medium',
         self::PRIORITY_HIGH => 'High',

@@ -1,0 +1,24 @@
+<?php
+/**
+ * @by SwiftOtter, Inc., 9/19/18
+ * @website https://swiftotter.com
+ **/
+
+/** @var Learning\IsaacLearning\ViewModel\Learning\Page $viewModel */
+$viewModel = $block->getData('viewModel');
+?>
+
+<h1 class="heading">Task Tracker</h1>
+
+<h2 class="create-task">Create A New Task:</h2>
+
+
+<h2 class="all-tasks">All Tasks:</h2>
+<?php foreach($viewModel->getAllTasks() as $tasks): ?>
+    <?php foreach($tasks as $task): ?>
+        <p class="task"><?php echo $task; ?></p>
+    <?php endforeach; ?>
+<?php endforeach; ?>
+
+<h3 class="id-sum">Sum Of All Task Id's:</h3>
+<p><?php echo $viewModel->getIdSum() ?></p>

@@ -19,13 +19,13 @@ class InstallData implements InstallDataInterface
         //Insert sample task in isaac_learning
         $installer->getConnection()->insert(
             $installer->getTable('isaac_learning'),
-            ['learning_id' => 1, 'title' => 'Sample Task', 'description' => 'Description of sample task']
+            ['learning_id' => '', 'title' => 'Sample Task', 'description' => 'Description of sample task']
         );
 
         //Insert second sample task in isaac_learning
         $installer->getConnection()->insert(
-            $installer->getTable('isaac_Learning'),
-            ['learning_id' => 3, 'title' => 'Second Sample Task', 'description' => 'Description of second sample task']
+            $installer->getTable('isaac_learning'),
+            ['learning_id' => '', 'title' => 'Second Sample Task', 'description' => 'Description of second sample task']
         );
 
         $installer->endSetup();

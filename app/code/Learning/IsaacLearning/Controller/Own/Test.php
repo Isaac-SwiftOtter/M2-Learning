@@ -6,15 +6,15 @@
 
 namespace Learning\IsaacLearning\Controller\Own;
 
-use Magento\Framework\App\Action\Context;
-use Magento\TestFramework\Event\Magento;
+use \Magento\Framework\App\Action\Context;
+use \Magento\TestFramework\Event\Magento;
 
 class Test extends \Magento\Framework\App\Action\Action
 {
     /**
      * @var \Magento\Framework\View\Result\PageFactory
      */
-    protected $resultPageFactory;
+    private $resultPageFactory;
 
     /**
      * @param \Magento\Framework\App\Action\Context $context
