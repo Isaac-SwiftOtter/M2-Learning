@@ -13,6 +13,7 @@ $viewModel = $block->getData('viewModel');
 <div class="create-task-wrapper">
     <h2 class="create-task-header">Create A New Task:</h2>
     <form class="create-task-form" action="<?php echo $block->getUrl('new/task/save') ?>" method="post">
+        <?php echo $block->getBlockHtml('formkey') ?>
         <div class=" field title-field">
             <label class="label" for="title">
                 <span><?php echo __('Title') ?></span>
