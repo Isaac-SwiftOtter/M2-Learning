@@ -50,6 +50,7 @@ class Page implements ArgumentInterface
             $allTasks[] = [
                 $task->getData('learning_id') . ': ' .
                 $task->getData('title') . ' - ' .
+                $task->getData('priority') . ' - ' .
                 $task->getData('description')
             ];
         }

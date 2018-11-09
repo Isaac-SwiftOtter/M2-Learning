@@ -6,16 +6,12 @@
 
 namespace Learning\IsaacLearning\Model;
 
+use Learning\IsaacLearning\Api\Data\TaskInterface;
 use \Magento\Framework\Model\AbstractModel;
 use \Learning\IsaacLearning\Model\ResourceModel\Task as TaskResource;
 
-class Task extends AbstractModel
+class Task extends AbstractModel implements TaskInterface
 {
-    const PRIORITY_LOW = 1;
-    const PRIORITY_MEDIUM = 2;
-    const PRIORITY_HIGH = 3;
-    const PRIORITY_CRITICAL = 4;
-
     private static $priorityOptions = [
         self::PRIORITY_LOW => 'Low',
         self::PRIORITY_MEDIUM => 'Medium',
