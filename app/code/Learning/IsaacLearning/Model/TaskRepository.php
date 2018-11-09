@@ -14,7 +14,7 @@ class TaskRepository implements TaskRepositoryInterface
     /**
      * @var \Learning\IsaacLearning\Model\ResourceModel\Task
      */
-    public $resourceModel;
+    private $resourceModel;
 
     /**
      * TaskRepository constructor.

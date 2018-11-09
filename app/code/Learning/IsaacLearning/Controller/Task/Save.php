@@ -6,7 +6,8 @@
 
 namespace Learning\IsaacLearning\Controller\Task;
 
-use Learning\IsaacLearning\Api\TaskRepositoryInterfaceFactory as TaskRepositoryFactory;
+use Learning\IsaacLearning\Api\TaskRepositoryInterface as TaskRepository;
+use Learning\IsaacLearning\Model\TaskFactory as TaskFactory;
 
 class Save extends \Magento\Framework\App\Action\Action
 {
@@ -16,25 +17,33 @@ class Save extends \Magento\Framework\App\Action\Action
     private $validator;
 
     /**
-     * @var TaskRepositoryFactory
+     * @var TaskRepository
      */
-    private $taskRepositoryFactory;
+    private $taskRepository;
+
+    /**
+     * @var TaskFactory
+     */
+    private $taskFactory;
 
     /**
      * Save constructor.
      *
      * @param \Magento\Framework\App\Action\Context $context
      * @param \Magento\Framework\Data\Form\FormKey\Validator $validator
-     * @param TaskRepositoryFactory $taskRepositoryFactory
+     * @param TaskRepository $taskRepository
+     * @param TaskFactory $taskFactory
      */
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
         \Magento\Framework\Data\Form\FormKey\Validator $validator,
-        TaskRepositoryFactory $taskRepositoryFactory
+        TaskRepository $taskRepository,
+        TaskFactory $taskFactory
     )
     {
         $this->validator = $validator;
-        $this->taskRepositoryFactory = $taskRepositoryFactory;
+        $this->taskRepository = $taskRepository;
+        $this->taskFactory = $taskFactory;
         parent::__construct($context);
     }
 
@@ -48,12 +57,13 @@ class Save extends \Magento\Framework\App\Action\Action
         $priority = $this->getRequest()->getParam('priority');
         $description = $this->getRequest()->getParam('description');
 
-        $task = $this->taskRepositoryFactory->create();
+        $task = $this->taskFactory->create();
         $task->setData('title', $title);
         $task->setData('priority', $priority);
         $task->setData('description', $description);
-        $task->save();
+        $this->taskRepository->save($task);
 
         $this->_redirect('isaac/own/test');
+        $this->messageManager->addSuccessMessage('New task saved!');
     }
 }
