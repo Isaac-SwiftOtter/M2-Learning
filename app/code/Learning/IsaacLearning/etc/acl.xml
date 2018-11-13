@@ -6,6 +6,13 @@
                 <resource id="Learning_IsaacLearning::learning_menu" title="Learning Admin Menu/ACL">
                     <resource id="Learning_IsaacLearning::learning_menu_item" title="Learning Menu Item"/>
                 </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Learning_IsaacLearning::learning_config" title="Learning Config"/>
+                        </resource>
+                    </resource>
+                </resource>
             </resource>
         </resources>
     </acl>
