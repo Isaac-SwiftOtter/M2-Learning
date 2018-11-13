@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Learning_IsaacLearning::learning_menu" title="Learning Admin Menu/ACL">
+                    <resource id="Learning_IsaacLearning::learning_menu_item" title="Learning Menu Item"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
