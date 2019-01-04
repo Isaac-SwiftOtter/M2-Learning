@@ -17,10 +17,10 @@ class Test extends \Magento\Framework\App\Action\Action
     private $resultPageFactory;
 
     /**
-     * @param \Magento\Framework\App\Action\Context $context
+     * @param Context $context
      * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
      */
-    public function __construct(\Magento\Framework\App\Action\Context $context,
+    public function __construct(Context $context,
                                 \Magento\Framework\View\Result\PageFactory $resultPageFactory)
     {
         $this->resultPageFactory = $resultPageFactory;

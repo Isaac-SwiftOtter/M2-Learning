@@ -1,7 +1,7 @@
 var config = {
     "map": {
         "*": {
-            learningTask: "Learning_IsaacLearning/js/learning-task",
+            learningTask: "Learning_IsaacLearning/js/learning-task"
         }
     }
-}
+};

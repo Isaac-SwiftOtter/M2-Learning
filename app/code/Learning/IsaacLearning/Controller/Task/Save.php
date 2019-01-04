@@ -57,11 +57,15 @@ class Save extends \Magento\Framework\App\Action\Action
         $priority = $this->getRequest()->getParam('priority');
         $description = $this->getRequest()->getParam('description');
 
+        $this->_eventManager->dispatch('Learning_IsaacLearning_Beginning_Save');
+
         $task = $this->taskFactory->create();
         $task->setData('title', $title);
         $task->setData('priority', $priority);
         $task->setData('description', $description);
         $this->taskRepository->save($task);
+
+        $this->_eventManager->dispatch('Learning_IsaacLearning_Task_Saved', ['task_name' => $title]);
 
         $this->_redirect('isaac/own/test');
         $this->messageManager->addSuccessMessage('New task saved!');

@@ -71,6 +71,7 @@ class Page implements ArgumentInterface
 
     public function helloWorld()
     {
-        return "Hello World!";
+        $helloWorld = "Hello World!";
+        return $helloWorld;
     }
 }
