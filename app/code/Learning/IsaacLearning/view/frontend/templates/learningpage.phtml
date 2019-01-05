@@ -1,0 +1,71 @@
+<?php
+/**
+ * @by SwiftOtter, Inc., 9/19/18
+ * @website https://swiftotter.com
+ **/
+
+/** @var Learning\IsaacLearning\ViewModel\Learning\Page $viewModel */
+$viewModel = $block->getData('viewModel');
+?>
+
+<h1 class="heading">Task Tracker</h1>
+
+<div class="create-task-wrapper">
+    <h2 class="create-task-header">Create A New Task:</h2>
+    <form class="create-task-form" action="<?php echo $block->getUrl('new/task/save') ?>" method="post">
+        <?php echo $block->getBlockHtml('formkey') ?>
+        <div class=" field title-field">
+            <label class="label" for="title">
+                <span><?php echo __('Title') ?></span>
+            </label>
+            <div class="input-field">
+                <input id="title" type="text" name="title" data-validate="{required:true}" value=""/>
+            </div>
+        </div>
+        <div class="field priority-field">
+            <label class="label" for="priority">
+                <span><?php echo __('Priority') ?></span>
+            </label>
+            <div class="input-field">
+                <select name="priority" data-validate="{required:true}">
+                    <?php foreach ($viewModel->getPriorityOptions() as $priority): ?>
+                        <option><?php echo $priority ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+        <div class="field description-field">
+            <label class="label" for="description">
+                <span><?php echo __('Description') ?></span>
+            </label>
+            <div class="input-field">
+                <input id="description" type="text" name="description" value="" placeholder="<?php echo __('Describe the task.') ?>"/>
+            </div>
+        </div>
+        <button type="submit" id="save-button">
+            <span><?php echo __('Save Task') ?></span>
+        </button>
+    </form>
+</div>
+
+<div class="all-tasks-wrapper">
+    <h2 class="all-tasks-header">All Tasks:</h2>
+    <?php foreach($viewModel->getAllTasks() as $tasks): ?>
+        <?php foreach($tasks as $task): ?>
+            <p class="task"><?php echo $task; ?></p>
+        <?php endforeach; ?>
+    <?php endforeach; ?>
+</div>
+
+<h3 class="id-sum">Sum Of All Task Id's:</h3>
+<p><?php echo $viewModel->getIdSum() ?></p>
+
+<h3><?php echo $viewModel->helloWorld() ?></h3>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Learning_IsaacLearning/js/learning-task": {}
+        }
+    }
+</script>

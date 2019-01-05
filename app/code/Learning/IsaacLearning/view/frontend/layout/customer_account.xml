@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" label="Customer My Account (All Pages)" design_abstraction="custom">
+    <body>
+        <referenceBlock name="customer_account_navigation">
+            <block class="Magento\Framework\View\Element\Html\Link\Current" name="customer_account_learning_link">
+                <arguments>
+                    <argument name="label" xsi:type="string">Learning Link</argument>
+                    <!-- To create link another argument would be added containing the path to the controller.
+                    <argument name="path" xsi:type="string">{path to controller}</argument>
+                    -->
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

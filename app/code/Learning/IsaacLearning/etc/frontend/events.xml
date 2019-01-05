@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="Learning_IsaacLearning_Beginning_Save">
+        <observer name="beginningSaveAlert" instance="Learning\IsaacLearning\Observer\BeginningSave"/>
+    </event>
+    <event name="Learning_IsaacLearning_Task_Saved">
+        <observer name="taskSavedAlert" instance="Learning\IsaacLearning\Observer\TaskSaved"/>
+    </event>
+</config>

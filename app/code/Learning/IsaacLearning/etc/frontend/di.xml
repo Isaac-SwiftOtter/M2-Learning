@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Learning\IsaacLearning\ViewModel\Learning\Page">
+        <plugin name="Learning_IsaacLearning::LearningPlugin" type="Learning\IsaacLearning\Plugin\LearningPlugin"/>
+    </type>
+</config>

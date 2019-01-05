@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Learning_IsaacLearning::learning_menu"
+             title="Learning Menu"
+             translate="title"
+             module="Learning_IsaacLearning"
+             sortOrder="50"
+             dependsOnModule="Learning_IsaacLearning"
+             resource="Learning_IsaacLearning::learning_menu"/>
+        <add id="Learning_IsaacLearning::learning_menu_item"
+             title="Learning Menu Item"
+             translate="title"
+             module="Learning_IsaacLearning"
+             parent="Learning_IsaacLearning::learning_menu"
+             sortOrder="10"
+             dependsOnModule="Learning_IsaacLearning"
+             action="learningadminmenu/item"
+             resource="Learning_IsaacLearning::learning_menu_item"/>
+    </menu>
+</config>

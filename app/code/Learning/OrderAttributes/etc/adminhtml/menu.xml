@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Learning_IsaacLearning::order_attributes"
+             title="Custom Order Attributes"
+             translate="title"
+             module="Learning_OrderAttributes"
+             parent="Learning_IsaacLearning::learning_menu"
+             sortOrder="20"
+             dependsOnModule="Learning_OrderAttributes"
+             action="oapage/orderattributes/index"
+             resource="Learning_OrderAttributes::Attributes"/>
+    </menu>
+</config>

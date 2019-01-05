@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="standard">
+        <route id="isaac_controller" frontName="isaac">
+            <module name="Learning_IsaacLearning"/>
+        </route>
+        <route id="isaac_save_controller" frontName="new">
+            <module name="Learning_IsaacLearning"/>
+        </route>
+    </router>
+</config>

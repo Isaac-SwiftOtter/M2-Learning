@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Learning\IsaacLearning\Api\TaskRepositoryInterface" type="Learning\IsaacLearning\Model\TaskRepository"/>
+    <preference for="Learning\IsaacLearning\Api\Data\TaskInterface" type="Learning\IsaacLearning\Model\Task"/>
+</config>
