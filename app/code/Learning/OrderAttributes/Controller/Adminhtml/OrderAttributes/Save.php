@@ -6,51 +6,47 @@
 
 namespace Learning\OrderAttributes\Controller\Adminhtml\OrderAttributes;
 
-use \Magento\Backend\App\Action;
 use \Magento\Backend\App\Action\Context;
-use \Magento\Framework\Data\Form\FormKey\Validator;
-use \Learning\OrderAttributes\Api\AttributeRepositoryInterface as AttributeRepository;
-use \Learning\OrderAttributes\Model\AttributeFactory as AttributeFactory;
+use \Magento\Eav\Model\Config;
+use \Learning\OrderAttributes\Model\AttributeFactory;
 
-class Save extends Action
+class Save extends Attribute
 {
     /**
-     * @var Validator
+     * Save constructor.
+     * @param Context $context
+     * @param Config $config
+     * @param AttributeFactory $attributeFactory
      */
-    private $validator;
-
-    /**
-     * @var AttributeRepository
-     */
-    private $attrRepo;
-
-    /**
-     * @var AttributeFactory
-     */
-    private $attrFactory;
-
-
     public function __construct(
         Context $context,
-        Validator $validator,
-        AttributeRepository $attrRepo,
-        AttributeFactory $attrFactory
+        Config $config,
+        AttributeFactory $attributeFactory
     )
     {
-        $this->validator = $validator;
-        $this->attrRepo = $attrRepo;
-        $this->attrFactory = $attrFactory;
-        parent::__construct($context);
+        parent::__construct(
+            $context,
+            $attributeFactory,
+            $config
+        );
     }
 
-    /**
-     * @return \Magento\Framework\View\Result\Page
-     */
     public function execute()
     {
-        if (!$this->validator->validate($this->getRequest())) {
-            $this->messageManager->addErrorMessage('Failed to save Attribute');
+        $attrData = $this->getRequest()->getPostData();
+
+        if (!$this->getRequest()->isPost() && $attrData) {
+            return;
         }
+
+        $attribute = $this->_initAttribute();
+        $attributeId = $this->getRequest()->getParam('attribute_id');
+
+        if ($attributeId) {
+            $attribute->load($attributeId);
+        }
+
+        $this->_redirect('adminhtml/*/');
 
 
     }

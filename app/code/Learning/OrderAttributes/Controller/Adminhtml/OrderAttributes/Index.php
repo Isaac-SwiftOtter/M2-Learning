@@ -6,33 +6,14 @@
 
 namespace Learning\OrderAttributes\Controller\Adminhtml\OrderAttributes;
 
-use Magento\Backend\App\Action;
-use Magento\Backend\App\Action\Context;
-use Magento\Framework\View\Result\PageFactory;
-
-class Index extends Action
+class Index extends Attribute
 {
     /**
-     * @var PageFactory
-     */
-    private $resultPageFactory;
-
-    /**
-     * Index constructor.
-     * @param Context $context
-     * @param PageFactory $resultPageFactory
-     */
-    public function __construct(Context $context, PageFactory $resultPageFactory)
-    {
-        $this->resultPageFactory = $resultPageFactory;
-        parent::__construct($context);
-    }
-
-    /**
-     * @return \Magento\Framework\View\Result\Page
+     * Custom Order Attribute Grid
+     * @return void
      */
     public function execute()
     {
-        return $this->resultPageFactory->create();
+
     }
 }
