@@ -38,7 +38,7 @@ class InstallSchema implements InstallSchemaInterface
                 $installer->getTable('sales_order'),
                 'entity_id',
                 \Magento\Framework\Db\Ddl\Table::ACTION_CASCADE
-            )->setComment('Learning Custom Order Attributes');
+            )->setComment('Learning Custom Order Attribute');
         $installer->getConnection()->createTable($table);
         $installer->endSetup();
     }
