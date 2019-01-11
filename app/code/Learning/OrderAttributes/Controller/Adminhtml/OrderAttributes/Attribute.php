@@ -11,7 +11,6 @@ use \Magento\Backend\App\Action\Context;
 use \Magento\Eav\Model\Config;
 use \Magento\Eav\Model\Entity\Type;
 use \Learning\OrderAttributes\Model\AttributeFactory;
-use \Learning\OrderAttributes\Model\Attribute as AttributeModel;
 
 abstract class Attribute extends Action
 {
@@ -68,7 +67,7 @@ abstract class Attribute extends Action
     }
 
     /**
-     * @return AttributeModel
+     * @return Attribute
      */
     public function _initAttribute()
     {
