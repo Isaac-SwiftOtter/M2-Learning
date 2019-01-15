@@ -5,7 +5,7 @@
             <item name="provider" xsi:type="string">learning_order_attributes_grid.learning_order_attributes_grid_data_source</item>
         </item>
     </argument>
-    <dataSource name="learning_order_attributes_data_source">
+    <dataSource name="learning_order_attributes_grid_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
             <argument name="name" xsi:type="string">learning_order_attributes_grid_data_source</argument>

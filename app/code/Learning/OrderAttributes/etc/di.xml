@@ -13,7 +13,7 @@
     <virtualType name="CustomOrderAttributesGridCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">learning_custom_order_attributes</argument>
-            <argument name="resourceModel" xsi:type="string">Learning\OrderAttributes\Model\ResourceModel\Attribute\Collection</argument>
+            <argument name="resourceModel" xsi:type="string">Learning\OrderAttributes\Model\ResourceModel\Attribute</argument>
         </arguments>
     </virtualType>
 </config>
