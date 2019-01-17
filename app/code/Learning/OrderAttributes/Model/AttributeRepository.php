@@ -32,8 +32,18 @@ class AttributeRepository implements AttributeRepositoryInterface
         return $attribute;
     }
 
+    public function getById(int $id)
+    {
+
+    }
+
     public function delete(AttributeInterface $attribute)
     {
         $this->resourceModel->delete($attribute);
+    }
+
+    public function deleteById(int $attribute)
+    {
+
     }
 }
