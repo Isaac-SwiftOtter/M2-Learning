@@ -13,14 +13,26 @@ use \Learning\OrderAttributes\Api\Data\AttributeInterface;
 interface AttributeRepositoryInterface
 {
     /**
-     * @param \Learning\OrderAttributes\Api\Data\AttributeInterface $attribute
-     * @return \Learning\OrderAttributes\Api\Data\AttributeInterface
+     * @param AttributeInterface $attribute
+     * @return AttributeInterface
      */
     public function save(AttributeInterface $attribute);
 
     /**
-     * @param \Learning\OrderAttributes\Api\Data\AttributeInterface $attribute
-     * @return \Learning\OrderAttributes\Api\Data\AttributeInterface
+     * @param int $id
+     * @return AttributeInterface
+     */
+    public function getById(int $id);
+
+    /**
+     * @param AttributeInterface $attribute
+     * @return AttributeInterface
      */
     public function delete(AttributeInterface $attribute);
+
+    /**
+     * @param int $attribute
+     * @return void
+     */
+    public function deleteById(int $attribute);
 }

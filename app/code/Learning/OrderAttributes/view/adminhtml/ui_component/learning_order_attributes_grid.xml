@@ -4,6 +4,15 @@
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">learning_order_attributes_grid.learning_order_attributes_grid_data_source</item>
         </item>
+        <item name="spinner" xsi:type="string">learning_order_attributes_columns</item>
+        <item name="buttons" xsi:type="array">
+            <item name="add" xsi:type="array">
+                <item name="name" xsi:type="string">add_attribute</item>
+                <item name="label" xsi:type="string" translate="true">Add New Order Attribute</item>
+                <item name="class" xsi:type="string">primary</item>
+                <item name="url" xsi:type="string">*/*/create</item>
+            </item>
+        </item>
     </argument>
     <dataSource name="learning_order_attributes_grid_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
@@ -29,7 +38,7 @@
         </settings>
         <columnsControls name="columns_controls"/>
     </listingToolbar>
-    <columns name="order_attribute_columns">
+    <columns name="learning_order_attributes_columns">
         <column name="entity_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
