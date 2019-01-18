@@ -19,7 +19,7 @@ class Edit extends Attribute
         if ($id) {
             $headerText = 'Edit Attribute';
         } else {
-            $headerText = 'New Attribute';
+            $headerText = 'New Order Attribute';
         }
 
         $resultPage->getConfig()->getTitle()->prepend(__($headerText));

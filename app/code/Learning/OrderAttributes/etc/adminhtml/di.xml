@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="OrderAttributeSaveButton" type="Learning\OrderAttributes\Block\Adminhtml\Button\Button">
+        <arguments>
+            <argument name="registryIdKey" xsi:type="const">Learning\OrderAttributes\Controller\Adminhtml\RegistryConstants::CURRENT_ATTRIBUTE_ID</argument>
+            <argument name="hideOnNew" xsi:type="string">false</argument>
+            <argument name="buttonData" xsi:type="array">
+                <item name="label" xsi:type="string">Save Attribute</item>
+                <item name="class" xsi:type="string">save primary</item>
+                <item name="sortOrder" xsi:type="number">80</item>
+                <item name="dataAttribute" xsi:type="array">
+                    <item name="mage-init" xsi:type="array">
+                        <item name="button" xsi:type="array">
+                            <item name="event" xsi:type="string">save</item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="OrderAttributeSaveAndContinueButton" type="Learning\OrderAttributes\Block\Adminhtml\Button\Button">
+        <arguments>
+            <argument name="registryIdKey" xsi:type="const">Learning\OrderAttributes\Controller\Adminhtml\RegistryConstants::CURRENT_ATTRIBUTE_ID</argument>
+            <argument name="hideOnNew" xsi:type="string">false</argument>
+            <argument name="buttonData" xsi:type="array">
+                <item name="label" xsi:type="string">Save and Continue Edit</item>
+                <item name="class" xsi:type="string">save</item>
+                <item name="sortOrder" xsi:type="number">60</item>
+                <item name="dataAttribute" xsi:type="array">
+                    <item name="mage-init" xsi:type="array">
+                        <item name="button" xsi:type="array">
+                            <item name="event" xsi:type="string">saveAndContinueEdit</item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="OrderAttributeDeleteButton" type="Learning\OrderAttributes\Block\Adminhtml\Button\DeleteButton">
+        <arguments>
+            <argument name="registryIdKey" xsi:type="const">Learning\OrderAttributes\Controller\Adminhtml\RegistryConstants::CURRENT_ATTRIBUTE_ID</argument>
+            <argument name="htmlId" xsi:type="string">order-attribute-delete-button</argument>
+            <argument name="deleteAction" xsi:type="string">*/*/delete</argument>
+            <argument name="requestIdParam" xsi:type="string">id</argument>
+            <argument name="hideOnNew" xsi:type="string">true</argument>
+            <argument name="buttonData" xsi:type="array">
+                <item name="label" xsi:type="string">Delete Attribute</item>
+                <item name="class" xsi:type="string">delete</item>
+                <item name="sortOrder" xsi:type="number">20</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="OrderAttributeBackButton" type="Learning\OrderAttributes\Block\Adminhtml\Button\BackButton">
+        <arguments>
+            <argument name="registryIdKey" xsi:type="const">Learning\OrderAttributes\Controller\Adminhtml\RegistryConstants::CURRENT_ATTRIBUTE_ID</argument>
+            <argument name="targetRoute" xsi:type="string">*/*/</argument>
+            <argument name="hideOnNew" xsi:type="string">true</argument>
+            <argument name="buttonData" xsi:type="array">
+                <item name="label" xsi:type="string">Back</item>
+                <item name="class" xsi:type="string">back</item>
+                <item name="sortOrder" xsi:type="number">20</item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>
