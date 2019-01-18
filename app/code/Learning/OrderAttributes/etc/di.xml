@@ -7,6 +7,7 @@
         <arguments>
             <argument name="collections" xsi:type="array">
                 <item name="learning_order_attributes_grid_data_source" xsi:type="string">CustomOrderAttributesGridCollection</item>
+                <item name="learning_order_attributes_form_data_source" xsi:type="string">CustomOrderAttributesGridCollection</item>
             </argument>
         </arguments>
     </type>
