@@ -6,37 +6,25 @@
 
 namespace Learning\OrderAttributes\Block\Adminhtml\Button;
 
-use Magento\Backend\Block\Widget\Context;
-use Magento\Framework\Registry;
-
 class DeleteButton extends Button
 {
-    public function __construct(
-        array $buttonData = [],
-        $hideOnNew = true,
-        string $registryIdKey,
-        Registry $registry,
-        Context $context,
-        string $htmlId,
-        string $requestIdParam = 'id',
-        string $deleteAction = '*/*/delete'
-    )
+    public function getButtonData()
     {
-        parent::__construct(
-            $buttonData,
-            $hideOnNew,
-            $registryIdKey,
-            $registry,
-            $context
-        );
+        if (!$this->getAttributeId()) {
+            return [];
+        }
 
-        $this->buttonData['data_attribute'] = ['url' => $this->getDeleteUrl($deleteAction, $requestIdParam)];
-        $this->buttonData['id'] = $htmlId;
-        $this->buttonData['on_click'] = '';
+        return [
+            'label' => __('Delete Attribute'),
+            'class' => 'delete',
+            'sort_order' => 20,
+            'id' => 'order-attribute-delete-button',
+            'on_click' => sprintf("location.href = '%s';", $this->getUrl('*/*/delete'))
+        ];
     }
 
     public function getDeleteUrl($deleteAction, $requestIdParam)
     {
-        return $this->getUrl($deleteAction, [$requestIdParam =>$this->getId()]);
+        return $this->getUrl($deleteAction, [$requestIdParam =>$this->getAttributeId()]);
     }
 }

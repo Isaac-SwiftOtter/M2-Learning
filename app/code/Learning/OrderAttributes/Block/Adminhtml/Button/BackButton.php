@@ -6,28 +6,19 @@
 
 namespace Learning\OrderAttributes\Block\Adminhtml\Button;
 
-use Magento\Backend\Block\Widget\Context;
-use Magento\Framework\Registry;
-
 class BackButton extends Button
 {
-    public function __construct(
-        array $buttonData = [],
-        $hideOnNew = true,
-        string $registryIdKey,
-        Registry $registry,
-        Context $context,
-        string $targetRoute
-    )
+    public function getButtonData()
     {
-        parent::__construct(
-            $buttonData,
-            $hideOnNew,
-            $registryIdKey,
-            $registry,
-            $context
-        );
+        if (!$this->getAttributeId()) {
+            return [];
+        }
 
-        $this->buttonData['on_click'] = "location.href = '{$this->getUrl($targetRoute)}'";
+        return [
+            'label' => __('Back'),
+            'on_click' => sprintf("location.href = '%s';", $this->getUrl('*/*/')),
+            'class' => 'back',
+            'sort_order' => 20
+        ];
     }
 }
