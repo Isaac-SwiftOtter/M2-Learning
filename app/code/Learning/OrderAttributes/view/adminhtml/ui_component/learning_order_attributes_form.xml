@@ -5,17 +5,22 @@
             <item name="provider" xsi:type="string">learning_order_attributes_form.learning_order_attributes_form_data_source</item>
         </item>
         <item name="label" xsi:type="string" translate="true">Attribute Information</item>
-        <item name="layout" xsi:type="array">
-            <item name="type" xsi:type="string">tabs</item>
-            <item name="navContainerName" xsi:type="string">left</item>
-        </item>
-        <item name="buttons" xsi:type="array">
-            <item name="back" xsi:type="string">OrderAttributeBackButton</item>
-            <item name="delete" xsi:type="string">OrderAttributeDeleteButton</item>
-            <item name="save" xsi:type="string">OrderAttributeSaveButton</item>
-            <item name="save_and_continue" xsi:type="string">OrderAttributeSaveAndContinueButton</item>
-        </item>
     </argument>
+    <settings>
+        <layout>
+            <navContainerName>left</navContainerName>
+            <type>tabs</type>
+        </layout>
+        <deps>
+            <dep>learning_order_attributes_form.learning_order_attributes_form_data_source</dep>
+        </deps>
+        <buttons>
+            <button name="back" class="Learning\OrderAttributes\Block\Adminhtml\Button\BackButton"/>
+            <button name="delete" class="Learning\OrderAttributes\Block\Adminhtml\Button\DeleteButton"/>
+            <button name="save" class="Learning\OrderAttributes\Block\Adminhtml\Button\SaveButton"/>
+            <button name="save_and_continue" class="Learning\OrderAttributes\Block\Adminhtml\Button\SaveContinueButton"/>
+        </buttons>
+    </settings>
     <dataSource name="learning_order_attributes_form_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
@@ -30,26 +35,27 @@
         </argument>
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
-                <item name="component" xsi:type="string">Magento_Ui\js\form\provider</item>
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
             </item>
         </argument>
     </dataSource>
     <fieldset name="general">
-        <argument name="data" xsi:type="array">
-            <item name="config" xsi:type="array">
-                <item name="label" xsi:type="string" translate="true">General Configuration</item>
-            </item>
-        </argument>
-        <field name="name">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="label" xsi:type="string">Label</item>
-                    <item name="visible" xsi:type="boolean">true</item>
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">general</item>
-                </item>
-            </argument>
+        <settings>
+            <label translate="true">General Configuration</label>
+        </settings>
+        <field name="label" sortOrder="10" formElement="text">
+            <!--<argument name="data" xsi:type="array">-->
+                <!--<item name="config" xsi:type="array">-->
+                    <!--<item name="source" xsi:type="string">general</item>-->
+                <!--</item>-->
+            <!--</argument>-->
+            <!--<settings>-->
+                <!--<validation>-->
+                    <!--<rule name="required-entry" xsi:type="boolean">true</rule>-->
+                <!--</validation>-->
+                <!--<dataType>string</dataType>-->
+                <!--<label translate="true">Label</label>-->
+            <!--</settings>-->
         </field>
     </fieldset>
 </form>
