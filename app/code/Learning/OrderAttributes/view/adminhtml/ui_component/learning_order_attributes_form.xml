@@ -5,6 +5,7 @@
             <item name="provider" xsi:type="string">learning_order_attributes_form.learning_order_attributes_form_data_source</item>
         </item>
         <item name="label" xsi:type="string" translate="true">Attribute Information</item>
+        <!--<item name="template" xsi:type="string">templates/form/collapsible</item>-->
     </argument>
     <settings>
         <layout>
@@ -43,19 +44,87 @@
         <settings>
             <label translate="true">General Configuration</label>
         </settings>
-        <field name="label" sortOrder="10" formElement="text">
-            <!--<argument name="data" xsi:type="array">-->
-                <!--<item name="config" xsi:type="array">-->
-                    <!--<item name="source" xsi:type="string">general</item>-->
-                <!--</item>-->
-            <!--</argument>-->
-            <!--<settings>-->
-                <!--<validation>-->
-                    <!--<rule name="required-entry" xsi:type="boolean">true</rule>-->
-                <!--</validation>-->
-                <!--<dataType>string</dataType>-->
-                <!--<label translate="true">Label</label>-->
-            <!--</settings>-->
+        <field name="label" sortOrder="10" formElement="input">
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Label</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="attribute_code"  sortOrder="20" formElement="input">
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Attribute Code</label>
+                <dataScope>attribute_code</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                    <rule name="validate-code" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="store-view" sortOrder="30" formElement="multiselect">
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Store View</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+            <!--<formElements>-->
+                <!--<multiselect>-->
+                    <!--<settings>-->
+                        <!--<options class=""/>-->
+                    <!--</settings>-->
+                <!--</multiselect>-->
+            <!--</formElements>-->
+        </field>
+        <field  name="customer-group" sortOrder="40" formElement="multiselect">
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Customer Group</label>
+            </settings>
+            <!--<formElements>-->
+                <!--<multiselect>-->
+                    <!--<settings>-->
+                        <!--<options class=""/>-->
+                    <!--</settings>-->
+                <!--</multiselect>-->
+            <!--</formElements>-->
+        </field>
+        <field name="frontend-input" sortOrder="50" formElement="select">
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Frontend Input Type</label>
+            </settings>
+            <!--<formElements>-->
+                <!--<select>-->
+                    <!--<settings>-->
+                        <!--<options class=""/>-->
+                    <!--</settings>-->
+                <!--</select>-->
+            <!--</formElements>-->
+        </field>
+        <field name="value-required" sortOrder="60" formElement="select">
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Require Value</label>
+
+            </settings>
+            <!--<formElements>-->
+                <!--<select>-->
+                    <!--<settings>-->
+                        <!--<options class=""/>-->
+                    <!--</settings>-->
+                <!--</select>-->
+            <!--</formElements>-->
+        </field>
+        <field name="default-value" sortOrder="70" formElement="input">
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Default Value</label>
+            </settings>
         </field>
     </fieldset>
 </form>
