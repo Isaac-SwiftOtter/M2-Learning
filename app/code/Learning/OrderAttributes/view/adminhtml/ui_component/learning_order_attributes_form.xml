@@ -64,14 +64,14 @@
                 </validation>
             </settings>
         </field>
-        <field name="store-view" sortOrder="30" formElement="multiselect">
-            <settings>
-                <dataType>string</dataType>
-                <label translate="true">Store View</label>
-                <validation>
-                    <rule name="required-entry" xsi:type="boolean">true</rule>
-                </validation>
-            </settings>
+        <!--<field name="store-view" sortOrder="30" formElement="multiselect">-->
+            <!--<settings>-->
+                <!--<dataType>string</dataType>-->
+                <!--<label translate="true">Store View</label>-->
+                <!--<validation>-->
+                    <!--<rule name="required-entry" xsi:type="boolean">true</rule>-->
+                <!--</validation>-->
+            <!--</settings>-->
             <!--<formElements>-->
                 <!--<multiselect>-->
                     <!--<settings>-->
@@ -79,12 +79,12 @@
                     <!--</settings>-->
                 <!--</multiselect>-->
             <!--</formElements>-->
-        </field>
-        <field  name="customer-group" sortOrder="40" formElement="multiselect">
-            <settings>
-                <dataType>string</dataType>
-                <label translate="true">Customer Group</label>
-            </settings>
+        <!--</field>-->
+        <!--<field  name="customer-group" sortOrder="40" formElement="multiselect">-->
+            <!--<settings>-->
+                <!--<dataType>string</dataType>-->
+                <!--<label translate="true">Customer Group</label>-->
+            <!--</settings>-->
             <!--<formElements>-->
                 <!--<multiselect>-->
                     <!--<settings>-->
@@ -92,12 +92,12 @@
                     <!--</settings>-->
                 <!--</multiselect>-->
             <!--</formElements>-->
-        </field>
-        <field name="frontend-input" sortOrder="50" formElement="select">
-            <settings>
-                <dataType>string</dataType>
-                <label translate="true">Frontend Input Type</label>
-            </settings>
+        <!--</field>-->
+        <!--<field name="frontend-input" sortOrder="50" formElement="select">-->
+            <!--<settings>-->
+                <!--<dataType>string</dataType>-->
+                <!--<label translate="true">Frontend Input Type</label>-->
+            <!--</settings>-->
             <!--<formElements>-->
                 <!--<select>-->
                     <!--<settings>-->
@@ -105,13 +105,13 @@
                     <!--</settings>-->
                 <!--</select>-->
             <!--</formElements>-->
-        </field>
-        <field name="value-required" sortOrder="60" formElement="select">
-            <settings>
-                <dataType>string</dataType>
-                <label translate="true">Require Value</label>
+        <!--</field>-->
+        <!--<field name="value-required" sortOrder="60" formElement="select">-->
+            <!--<settings>-->
+                <!--<dataType>string</dataType>-->
+                <!--<label translate="true">Require Value</label>-->
 
-            </settings>
+            <!--</settings>-->
             <!--<formElements>-->
                 <!--<select>-->
                     <!--<settings>-->
@@ -119,12 +119,12 @@
                     <!--</settings>-->
                 <!--</select>-->
             <!--</formElements>-->
-        </field>
-        <field name="default-value" sortOrder="70" formElement="input">
-            <settings>
-                <dataType>string</dataType>
-                <label translate="true">Default Value</label>
-            </settings>
-        </field>
+        <!--</field>-->
+        <!--<field name="default-value" sortOrder="70" formElement="input">-->
+            <!--<settings>-->
+                <!--<dataType>string</dataType>-->
+                <!--<label translate="true">Default Value</label>-->
+            <!--</settings>-->
+        <!--</field>-->
     </fieldset>
 </form>

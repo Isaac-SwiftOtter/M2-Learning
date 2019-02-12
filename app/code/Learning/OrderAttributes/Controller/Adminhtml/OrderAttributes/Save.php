@@ -6,34 +6,33 @@
 
 namespace Learning\OrderAttributes\Controller\Adminhtml\OrderAttributes;
 
-use \Magento\Backend\App\Action\Context;
-use \Magento\Eav\Model\Config;
-use \Learning\OrderAttributes\Model\AttributeFactory;
-
 class Save extends Attribute
 {
-    /**
-     * Save constructor.
-     * @param Context $context
-     * @param Config $config
-     * @param AttributeFactory $attributeFactory
-     */
-    public function __construct(
-        Context $context,
-        Config $config,
-        AttributeFactory $attributeFactory
-    )
-    {
-        parent::__construct(
-            $context,
-            $attributeFactory,
-            $config
-        );
-    }
+    const GENERAL_DATA_KEY = 'general';
+
+//    /**
+//     * Save constructor.
+//     * @param Context $context
+//     * @param Config $config
+//     * @param AttributeFactory $attributeFactory
+//     */
+//    public function __construct(
+//        Context $context,
+//        Config $config,
+//        AttributeFactory $attributeFactory
+//    )
+//    {
+//        parent::__construct(
+//            $context,
+//            $attributeFactory,
+//            $config
+//        );
+//    }
 
     public function execute()
     {
-        $attrData = $this->getRequest()->getPostData();
+        $data = $this->getRequest()->getParams();
+        $attrData = $data[self::GENERAL_DATA_KEY];
 
         if (!$this->getRequest()->isPost() && $attrData) {
             return;
@@ -46,7 +45,11 @@ class Save extends Attribute
             $attribute->load($attributeId);
         }
 
-        $this->_redirect('adminhtml/*/');
+        $attribute->setData($attrData);
+
+        $this->attributeRepository()->save($attribute);
+
+        $this->_redirect('*/*/');
 
 
     }

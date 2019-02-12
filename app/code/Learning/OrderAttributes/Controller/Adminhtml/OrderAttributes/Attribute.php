@@ -11,6 +11,7 @@ use \Magento\Backend\App\Action\Context;
 use \Magento\Eav\Model\Config;
 use \Magento\Eav\Model\Entity\Type;
 use \Learning\OrderAttributes\Model\AttributeFactory;
+use \Learning\OrderAttributes\Api\AttributeRepositoryInterface;
 
 abstract class Attribute extends Action
 {
@@ -32,20 +33,28 @@ abstract class Attribute extends Action
     private $eavConfig;
 
     /**
+     * @var AttributeRepositoryInterface
+     */
+    private $attributeRepository;
+
+    /**
      * Attribute constructor.
      * @param Context $context
      * @param AttributeFactory $attributeFactory
      * @param Config $config
+     * @param AttributeRepositoryInterface $attributeRepository
      */
     public function __construct(
         Context $context,
         AttributeFactory $attributeFactory,
-        Config $config
+        Config $config,
+        AttributeRepositoryInterface $attributeRepository
     )
     {
         $this->attrFactory = $attributeFactory;
         $this->eavConfig = $config;
         parent::__construct($context);
+        $this->attributeRepository = $attributeRepository;
     }
 
     /**
@@ -67,7 +76,7 @@ abstract class Attribute extends Action
     }
 
     /**
-     * @return Attribute
+     * @return \Learning\OrderAttributes\Model\Attribute
      */
     public function _initAttribute()
     {
@@ -75,4 +84,11 @@ abstract class Attribute extends Action
         return $attribute;
     }
 
+    /**
+     * @return AttributeRepositoryInterface
+     */
+    public function attributeRepository()
+    {
+        return $this->attributeRepository;
+    }
 }
