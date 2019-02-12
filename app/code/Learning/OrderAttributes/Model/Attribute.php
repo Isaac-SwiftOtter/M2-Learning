@@ -13,9 +13,6 @@ class Attribute extends AbstractModel
 {
     const MODULE_NAME = 'Learning_OrderAttributes';
 
-
-
-
     public function _construct()
     {
         $this->_init(AttributeResource::class);
