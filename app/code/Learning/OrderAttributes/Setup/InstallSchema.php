@@ -40,6 +40,27 @@ class InstallSchema implements InstallSchemaInterface
                 \Magento\Framework\Db\Ddl\Table::ACTION_CASCADE
             )->setComment('Learning Custom Order Attribute');
         $installer->getConnection()->createTable($table);
+
+        /**
+         * Create table 'learning_custom_order_attributes_definitions'
+         */
+        $table = $installer->getConnection()
+            ->newTable($installer->getTable('learning_custom_order_attributes_definitions')
+            )->addColumn(
+                'attribute_id',
+                \Magento\Framework\Db\Ddl\Table::TYPE_INTEGER,
+                null,
+                ['unsigned' => true, 'nullable' => false, 'primary' => true, 'default' => '0'],
+                'Attribute ID'
+            )->addColumn(
+                'attribute_name',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                null,
+                ['unsigned' => true, 'nullable' => false],
+                'Attribute Name'
+            );
+        $installer->getConnection()->createTable($table);
+
         $installer->endSetup();
     }
 }
