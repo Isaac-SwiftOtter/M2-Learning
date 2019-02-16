@@ -6,12 +6,13 @@
 
 namespace Learning\OrderAttributes\Controller\Adminhtml\OrderAttributes;
 
+use Learning\OrderAttributes\Model\AttributeDefinitions;
 use \Magento\Backend\App\Action;
 use \Magento\Backend\App\Action\Context;
 use \Magento\Eav\Model\Config;
 use \Magento\Eav\Model\Entity\Type;
-use \Learning\OrderAttributes\Model\AttributeFactory;
-use \Learning\OrderAttributes\Api\AttributeRepositoryInterface;
+use \Learning\OrderAttributes\Model\AttributeDefinitionsFactory;
+use \Learning\OrderAttributes\Api\AttributeDefinitionsRepositoryInterface;
 
 abstract class Attribute extends Action
 {
@@ -23,7 +24,7 @@ abstract class Attribute extends Action
     private $entityType;
 
     /**
-     * @var AttributeFactory
+     * @var AttributeDefinitionsFactory
      */
     private $attrFactory;
 
@@ -33,22 +34,22 @@ abstract class Attribute extends Action
     private $eavConfig;
 
     /**
-     * @var AttributeRepositoryInterface
+     * @var AttributeDefinitionsRepositoryInterface
      */
     private $attributeRepository;
 
     /**
      * Attribute constructor.
      * @param Context $context
-     * @param AttributeFactory $attributeFactory
+     * @param AttributeDefinitionsFactory $attributeFactory
      * @param Config $config
-     * @param AttributeRepositoryInterface $attributeRepository
+     * @param AttributeDefinitionsRepositoryInterface $attributeRepository
      */
     public function __construct(
         Context $context,
-        AttributeFactory $attributeFactory,
+        AttributeDefinitionsFactory $attributeFactory,
         Config $config,
-        AttributeRepositoryInterface $attributeRepository
+        AttributeDefinitionsRepositoryInterface $attributeRepository
     )
     {
         $this->attrFactory = $attributeFactory;
@@ -76,7 +77,7 @@ abstract class Attribute extends Action
     }
 
     /**
-     * @return \Learning\OrderAttributes\Model\Attribute
+     * @return \Learning\OrderAttributes\Model\AttributeDefinitions
      */
     public function _initAttribute()
     {
@@ -85,7 +86,7 @@ abstract class Attribute extends Action
     }
 
     /**
-     * @return AttributeRepositoryInterface
+     * @return AttributeDefinitionsRepositoryInterface
      */
     public function attributeRepository()
     {
