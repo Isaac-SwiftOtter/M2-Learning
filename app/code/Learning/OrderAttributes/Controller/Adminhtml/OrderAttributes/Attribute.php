@@ -6,7 +6,6 @@
 
 namespace Learning\OrderAttributes\Controller\Adminhtml\OrderAttributes;
 
-use Learning\OrderAttributes\Model\AttributeDefinitions;
 use \Magento\Backend\App\Action;
 use \Magento\Backend\App\Action\Context;
 use \Magento\Eav\Model\Config;

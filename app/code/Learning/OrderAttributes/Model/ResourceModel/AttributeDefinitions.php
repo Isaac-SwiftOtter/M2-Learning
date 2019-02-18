@@ -12,6 +12,6 @@ class AttributeDefinitions extends AbstractDb
 {
     public function _construct()
     {
-        $this->_init('learning_customer_order_attributes_definitions', 'attribute_id');
+        $this->_init('learning_custom_order_attributes_definitions', 'attribute_id');
     }
 }

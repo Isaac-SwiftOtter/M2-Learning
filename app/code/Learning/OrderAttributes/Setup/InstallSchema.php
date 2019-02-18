@@ -25,32 +25,20 @@ class InstallSchema implements InstallSchemaInterface
                 'entity_id',
                 \Magento\Framework\Db\Ddl\Table::TYPE_INTEGER,
                 null,
-                ['unsigned' => true, 'nullable' => false, 'primary' => true, 'default' => '0'],
+                ['unsigned' => true, 'nullable' => false, 'primary' => true],
                 'Entity ID'
-            )->addForeignKey(
-                $installer->getFkName(
-                    'learning_custom_order_attributes',
-                    'entity_id',
-                    'sales_order',
-                    'entity_id'
-                ),
-                'entity_id',
-                $installer->getTable('sales_order'),
-                'entity_id',
-                \Magento\Framework\Db\Ddl\Table::ACTION_CASCADE
-            )->setComment('Learning Custom Order Attribute'
             )->addColumn(
-                'attribute_label',
+                'attribute_code',
                 \Magento\Framework\Db\Ddl\Table::TYPE_TEXT,
                 null,
                 ['unsigned' => true, 'nullable' => false],
-                'Label'
+                'Attribute Code'
             )->addColumn(
                 'attribute_data',
                 \Magento\Framework\Db\Ddl\Table::TYPE_TEXT,
                 null,
                 ['unsigned' => true, 'nullable' => false],
-                'Data'
+                'Attribute Data'
             );
         $installer->getConnection()->createTable($table);
 
@@ -66,11 +54,17 @@ class InstallSchema implements InstallSchemaInterface
                 ['unsigned' => true, 'nullable' => false, 'primary' => true, 'default' => '0'],
                 'Attribute ID'
             )->addColumn(
-                'attribute_name',
+                'attribute_code',
                 \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                 null,
                 ['unsigned' => true, 'nullable' => false],
-                'Attribute Name'
+                'Attribute Code'
+            )->addColumn(
+                'attribute_label',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                null,
+                ['unsigned' => true, 'nullable' => false],
+                'Attribute Label'
             );
         $installer->getConnection()->createTable($table);
 

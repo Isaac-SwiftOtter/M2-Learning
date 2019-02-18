@@ -19,7 +19,6 @@
             <button name="back" class="Learning\OrderAttributes\Block\Adminhtml\Button\BackButton"/>
             <button name="delete" class="Learning\OrderAttributes\Block\Adminhtml\Button\DeleteButton"/>
             <button name="save" class="Learning\OrderAttributes\Block\Adminhtml\Button\SaveButton"/>
-            <button name="save_and_continue" class="Learning\OrderAttributes\Block\Adminhtml\Button\SaveContinueButton"/>
         </buttons>
     </settings>
     <dataSource name="learning_order_attributes_form_data_source">
@@ -27,7 +26,7 @@
             <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
             <argument name="name" xsi:type="string">learning_order_attributes_form_data_source</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
-            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="primaryFieldName" xsi:type="string">attribute_id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="submit_url" xsi:type="url" path="oapage/orderattributes/save"/>
