@@ -39,7 +39,7 @@
         <columnsControls name="columns_controls"/>
     </listingToolbar>
     <columns name="learning_order_attributes_columns">
-        <column name="entity_id">
+        <column name="attribute_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">textRange</item>

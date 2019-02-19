@@ -25,7 +25,7 @@ class InstallSchema implements InstallSchemaInterface
                 'entity_id',
                 \Magento\Framework\Db\Ddl\Table::TYPE_INTEGER,
                 null,
-                ['unsigned' => true, 'nullable' => false, 'primary' => true],
+                ['identity' => true, 'unsigned' => true, 'nullable' => false, 'primary' => true],
                 'Entity ID'
             )->addColumn(
                 'attribute_code',
@@ -51,7 +51,7 @@ class InstallSchema implements InstallSchemaInterface
                 'attribute_id',
                 \Magento\Framework\Db\Ddl\Table::TYPE_INTEGER,
                 null,
-                ['unsigned' => true, 'nullable' => false, 'primary' => true, 'default' => '0'],
+                ['identity' => true, 'unsigned' => true, 'nullable' => false, 'primary' => true],
                 'Attribute ID'
             )->addColumn(
                 'attribute_code',

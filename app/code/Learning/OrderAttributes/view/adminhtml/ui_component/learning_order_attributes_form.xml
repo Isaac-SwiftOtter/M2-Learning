@@ -43,7 +43,7 @@
         <settings>
             <label translate="true">General Configuration</label>
         </settings>
-        <field name="label" sortOrder="10" formElement="input">
+        <field name="attribute_label" sortOrder="10" formElement="input">
             <settings>
                 <dataType>string</dataType>
                 <label translate="true">Label</label>
