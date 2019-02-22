@@ -28,14 +28,15 @@ class PostActions extends Column
     {
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as &$item) {
-                $label = $item['attribute_label'];
-
-                $item[$label]['edit'] = [
+                $item[$this->getData('name')]['edit'] = [
                     'href' => $this->urlBuilder->getUrl(self::ATTRIBUTE_EDIT_URL, ['id' => $item['attribute_id']]),
-                    'label' => __('Edit')
+                    'label' => __('Edit'),
+                    'hidden' => false
                 ];
 
-                $item[$label]['delete'] = [
+                $label = $item['attribute_label'];
+
+                $item[$this->getData('name')]['delete'] = [
                     'href' => $this->urlBuilder->getUrl(self::ATTRIBUTE_DELETE_URL, ['id' => $item['attribute_id']]),
                     'label' => __('Delete'),
                     'confirm' => [

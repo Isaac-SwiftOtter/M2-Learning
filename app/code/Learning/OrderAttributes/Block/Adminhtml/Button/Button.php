@@ -52,56 +52,12 @@ class Button implements ButtonProviderInterface
      */
     public function getAttributeId()
     {
-        return $this->registry->registry(RegistryConstants::CURRENT_ATTRIBUTE_ID);
+        $id = $this->registry->registry(RegistryConstants::CURRENT_ATTRIBUTE_ID);
+        return $id;
     }
 
     public function getButtonData()
     {
         return [];
     }
-
-
-//    public $buttonData;
-//
-//    private $hideOnNew;
-//
-//    private $registry;
-//
-//    private $registryIdKey;
-//
-//    private $urlBuilder;
-//
-//    public function __construct(
-//        $buttonData = [],
-//        $hideOnNew = false,
-//        $registryIdKey,
-//        Registry $registry,
-//        Context $context
-//    )
-//    {
-//        $this->buttonData = $buttonData;
-//        $this->hideOnNew = $hideOnNew;
-//        $this->registryIdKey = $registryIdKey;
-//        $this->registry = $registry;
-//        $this->urlBuilder = $context->getUrlBuilder();
-//    }
-//
-//    public function getId()
-//    {
-//        return $this->registry->registry($this->registryIdKey);
-//    }
-//
-//    public function getUrl($route = '', $params = [])
-//    {
-//        return $this->urlBuilder->getUrl($route, $params);
-//    }
-//
-//    public function getButtonData()
-//    {
-//        if ($this->hideOnNew && !$this->getId()) {
-//            return [];
-//        }
-//
-//        return $this->buttonData;
-//    }
 }
