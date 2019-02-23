@@ -5,7 +5,6 @@
             <item name="provider" xsi:type="string">learning_order_attributes_form.learning_order_attributes_form_data_source</item>
         </item>
         <item name="label" xsi:type="string" translate="true">Attribute Information</item>
-        <!--<item name="template" xsi:type="string">templates/form/collapsible</item>-->
     </argument>
     <settings>
         <layout>

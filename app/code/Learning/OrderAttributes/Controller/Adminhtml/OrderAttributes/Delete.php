@@ -12,6 +12,8 @@ class Delete extends Attribute
     {
         $id = $this->getRequest()->getParam('id');
 
+        $this->attributeRepository()->deleteById($id);
+
         $this->_redirect('*/*/');
     }
 

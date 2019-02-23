@@ -17,12 +17,19 @@ class AttributeDefinitionsRepository implements AttributeDefinitionsRepositoryIn
     private $resourceModel;
 
     /**
+     * @var AttributeDefinitionsFactory
+     */
+    private $attributeFactory;
+
+    /**
      * AttributeDefinitionsRepository constructor.
      * @param ResourceModel\AttributeDefinitions $resourceModel
+     * @param AttributeDefinitionsFactory $attributeFactory
      */
-    public function __construct(ResourceModel\AttributeDefinitions $resourceModel)
+    public function __construct(ResourceModel\AttributeDefinitions $resourceModel, AttributeDefinitionsFactory $attributeFactory)
     {
         $this->resourceModel = $resourceModel;
+        $this->attributeFactory = $attributeFactory;
     }
 
     /**
@@ -41,7 +48,7 @@ class AttributeDefinitionsRepository implements AttributeDefinitionsRepositoryIn
      */
     public function getById(int $id)
     {
-
+        // TODO: Implement getById() method.
     }
 
     /**
@@ -59,6 +66,9 @@ class AttributeDefinitionsRepository implements AttributeDefinitionsRepositoryIn
      */
     public function deleteById(int $attributeDefinitions)
     {
+        $attribute = $this->attributeFactory->create();
+        $attribute->setId($attributeDefinitions);
+        $this->delete($attribute);
 
     }
 }
