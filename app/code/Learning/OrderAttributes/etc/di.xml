@@ -2,6 +2,8 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="\Learning\OrderAttributes\Api\AttributeRepositoryInterface" type="\Learning\OrderAttributes\Model\AttributeRepository"/>
     <preference for="\Learning\OrderAttributes\Api\Data\AttributeInterface" type="\Learning\OrderAttributes\Model\Attribute"/>
+    <preference for="\Learning\OrderAttributes\Api\AttributeDefinitionsRepositoryInterface" type="\Learning\OrderAttributes\Model\AttributeDefinitionsRepository"/>
+    <preference for="\Learning\OrderAttributes\Api\Data\AttributeDefinitionsInterface" type="\Learning\OrderAttributes\Model\AttributeDefinitions"/>
 
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
@@ -13,8 +15,8 @@
     </type>
     <virtualType name="CustomOrderAttributesGridCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
-            <argument name="mainTable" xsi:type="string">learning_custom_order_attributes</argument>
-            <argument name="resourceModel" xsi:type="string">Learning\OrderAttributes\Model\ResourceModel\Attribute</argument>
+            <argument name="mainTable" xsi:type="string">learning_custom_order_attributes_definitions</argument>
+            <argument name="resourceModel" xsi:type="string">Learning\OrderAttributes\Model\ResourceModel\AttributeDefinitions</argument>
         </arguments>
     </virtualType>
 </config>

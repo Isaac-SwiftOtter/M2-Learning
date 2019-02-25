@@ -5,7 +5,6 @@
             <item name="provider" xsi:type="string">learning_order_attributes_form.learning_order_attributes_form_data_source</item>
         </item>
         <item name="label" xsi:type="string" translate="true">Attribute Information</item>
-        <!--<item name="template" xsi:type="string">templates/form/collapsible</item>-->
     </argument>
     <settings>
         <layout>
@@ -19,7 +18,6 @@
             <button name="back" class="Learning\OrderAttributes\Block\Adminhtml\Button\BackButton"/>
             <button name="delete" class="Learning\OrderAttributes\Block\Adminhtml\Button\DeleteButton"/>
             <button name="save" class="Learning\OrderAttributes\Block\Adminhtml\Button\SaveButton"/>
-            <button name="save_and_continue" class="Learning\OrderAttributes\Block\Adminhtml\Button\SaveContinueButton"/>
         </buttons>
     </settings>
     <dataSource name="learning_order_attributes_form_data_source">
@@ -27,7 +25,7 @@
             <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
             <argument name="name" xsi:type="string">learning_order_attributes_form_data_source</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
-            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="primaryFieldName" xsi:type="string">attribute_id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="submit_url" xsi:type="url" path="oapage/orderattributes/save"/>
@@ -44,7 +42,7 @@
         <settings>
             <label translate="true">General Configuration</label>
         </settings>
-        <field name="label" sortOrder="10" formElement="input">
+        <field name="attribute_label" sortOrder="10" formElement="input">
             <settings>
                 <dataType>string</dataType>
                 <label translate="true">Label</label>

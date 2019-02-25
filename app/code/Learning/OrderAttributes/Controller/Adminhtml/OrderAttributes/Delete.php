@@ -10,7 +10,11 @@ class Delete extends Attribute
 {
     public function execute()
     {
-        // TODO: Implement execute() method.
+        $id = $this->getRequest()->getParam('id');
+
+        $this->attributeRepository()->deleteById($id);
+
+        $this->_redirect('*/*/');
     }
 
 }

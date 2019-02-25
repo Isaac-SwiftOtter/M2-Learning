@@ -10,10 +10,6 @@ class DeleteButton extends Button
 {
     public function getButtonData()
     {
-        if (!$this->getAttributeId()) {
-            return [];
-        }
-
         return [
             'label' => __('Delete Attribute'),
             'class' => 'delete',

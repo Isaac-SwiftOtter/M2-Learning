@@ -39,7 +39,7 @@ class Save extends Attribute
         }
 
         $attribute = $this->_initAttribute();
-        $attributeId = $this->getRequest()->getParam('attribute_id');
+        $attributeId = $this->getRequest()->getParam('attribute_id', null);
 
         if ($attributeId) {
             $attribute->load($attributeId);

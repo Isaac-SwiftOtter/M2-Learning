@@ -6,10 +6,11 @@
 
 namespace Learning\OrderAttributes\Model;
 
+use Learning\OrderAttributes\Api\Data\AttributeInterface;
 use Learning\OrderAttributes\Model\ResourceModel\Attribute as AttributeResource;
 use Magento\Framework\Model\AbstractModel;
 
-class Attribute extends AbstractModel
+class Attribute extends AbstractModel implements AttributeInterface
 {
     const MODULE_NAME = 'Learning_OrderAttributes';
 
