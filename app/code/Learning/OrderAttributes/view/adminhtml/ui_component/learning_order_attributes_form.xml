@@ -42,10 +42,9 @@
         <settings>
             <label translate="true">General Configuration</label>
         </settings>
-        <field name="attribute_id" sortOrder="5" formElement="input">
+        <field name="attribute_id" sortOrder="5" formElement="hidden">
             <settings>
                 <dataType>text</dataType>
-                <visible>false</visible>
             </settings>
         </field>
         <field name="attribute_label" sortOrder="10" formElement="input">
