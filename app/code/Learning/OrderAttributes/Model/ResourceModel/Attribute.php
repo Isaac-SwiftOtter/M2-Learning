@@ -14,4 +14,13 @@ class Attribute extends AbstractDb
     {
         $this->_init('learning_custom_order_attributes', 'entity_id');
     }
+
+    public function numberOfAttributes()
+    {
+        $column = $this->getConnection()->select();
+        $column->from($this->getTable('learning_custom_order_attributes'), 'entity_id');
+        $ids = $this->getConnection()->fetchCol($column);
+
+        return count($ids);
+    }
 }

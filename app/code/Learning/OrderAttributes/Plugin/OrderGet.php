@@ -8,5 +8,15 @@ namespace Learning\OrderAttributes\Plugin;
 
 class OrderGet
 {
+    public function afterGet(
 
+    )
+    {
+
+    }
+
+    private function getAttributes()
+    {
+
+    }
 }
