@@ -10,12 +10,14 @@ class OrderGet
 {
     public function afterGet(
 
+        $resultOrder
     )
     {
-
+        $resultOrder =$this->getAttributes($resultOrder);
+        return $resultOrder;
     }
 
-    private function getAttributes()
+    private function getAttributes($order)
     {
 
     }
