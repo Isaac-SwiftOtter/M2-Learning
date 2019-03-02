@@ -19,7 +19,7 @@ class AttributeRepository implements AttributeRepositoryInterface
     /**
      * AttributeRepository constructor.
      *
-     * param ResourceModel\Attribute $resourceModel
+     * @param ResourceModel\Attribute $resourceModel
      */
     public function __construct(ResourceModel\Attribute $resourceModel)
     {

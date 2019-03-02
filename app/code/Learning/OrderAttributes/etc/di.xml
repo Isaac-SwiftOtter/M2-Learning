@@ -23,6 +23,6 @@
 
     <type name="Magento\Sales\Api\OrderRepositoryInterface">
         <plugin name="Learning_OrderAttributes::save_attribute_data" type="Learning\OrderAttributes\Plugin\OrderSave"/>
-        <plugin name="Learning_OrderAttributes::get_order_attributes" type="Learning\OrderAttributes\Plugin\OrderGet"/>
+        <plugin name="Learning_OrderAttributes::get_order_attributes" type="Learning\OrderAttributes\Plugin\AttributeGet"/>
     </type>
 </config>
