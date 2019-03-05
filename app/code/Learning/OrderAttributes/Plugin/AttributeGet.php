@@ -7,6 +7,7 @@
 namespace Learning\OrderAttributes\Plugin;
 
 use Learning\OrderAttributes\Model\ResourceModel\Attribute\CollectionFactory;
+use Learning\OrderAttributes\Model\ExtensionAttributeFactory;
 
 class AttributeGet
 {
@@ -16,12 +17,19 @@ class AttributeGet
     private $collectionFactory;
 
     /**
+     * @var ExtensionAttributeFactory
+     */
+    private $extensionAttributeFactory;
+
+    /**
      * AttributeGet constructor.
      * @param CollectionFactory $collectionFactory
+     * @param ExtensionAttributeFactory $extensionAttributeFactory
      */
-    public function __construct(CollectionFactory $collectionFactory)
+    public function __construct(CollectionFactory $collectionFactory, ExtensionAttributeFactory $extensionAttributeFactory)
     {
         $this->collectionFactory = $collectionFactory;
+        $this->extensionAttributeFactory = $extensionAttributeFactory;
     }
 
     public function afterGet(
@@ -43,6 +51,11 @@ class AttributeGet
         }
 
         $extensionAttributes = $order->getExtensionAttributes();
-        $orderExtension = $extensionAttributes ? $extensionAttributes : $this->orderExtensionFactory->create();
+//        $orderExtension = $extensionAttributes ? $extensionAttributes : $this->orderExtensionFactory->create();
+        $orderAttribute = $this->extensionAttributeFactory->create();
+        $orderAttribute->setValue($attributeList);
+        $order->setExtensionAttributes($orderAttribute);
+
+        return $order;
     }
 }
