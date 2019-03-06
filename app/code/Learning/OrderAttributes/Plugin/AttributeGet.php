@@ -33,15 +33,15 @@ class AttributeGet
     }
 
     public function afterGet(
-
-        $resultOrder
+        \Magento\Sales\Api\OrderRepositoryInterface $subject,
+        \Magento\Sales\Api\Data\OrderInterface $resultOrder
     )
     {
-        $resultOrder =$this->getAttributes($resultOrder);
+        $resultOrder = $this->getAttributes($resultOrder);
         return $resultOrder;
     }
 
-    private function getAttributes($order)
+    private function getAttributes(\Magento\Sales\Api\Data\OrderInterface $order)
     {
         $attributeList = [];
         $attributes = $this->collectionFactory->create();
@@ -51,10 +51,11 @@ class AttributeGet
         }
 
         $extensionAttributes = $order->getExtensionAttributes();
-//        $orderExtension = $extensionAttributes ? $extensionAttributes : $this->orderExtensionFactory->create();
+        $orderExtension = $extensionAttributes ? $extensionAttributes : $this->orderExtensionFactory->create();
         $orderAttribute = $this->extensionAttributeFactory->create();
         $orderAttribute->setValue($attributeList);
-        $order->setExtensionAttributes($orderAttribute);
+        $orderExtension->setOrderAttribute($orderAttribute);
+        $order->setExtensionAttributes($orderExtension);
 
         return $order;
     }
