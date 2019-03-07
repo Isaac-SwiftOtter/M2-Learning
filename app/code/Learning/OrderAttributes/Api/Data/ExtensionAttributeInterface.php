@@ -9,7 +9,7 @@
 namespace Learning\OrderAttributes\Api\Data;
 
 
-interface ExtensionAttributeInterface
+interface ExtensionAttributeInterface extends \Magento\Framework\Api\ExtensibleDataInterface
 {
     const VALUE = 'value';
 
@@ -25,4 +25,17 @@ interface ExtensionAttributeInterface
      * @return $this
      */
     public function setValues($value);
+
+    /**
+     * Get existing extension attributes
+     * @return \Magento\Sales\Api\Data\OrderExtensionInterface|null
+     */
+    public function getExtensionAttributes();
+
+    /**
+     * Set extension attribute
+     * @param \Magento\Sales\Api\Data\OrderExtensionInterface|null $extensionAttributes
+     * @return $this
+     */
+    public function setExtensionAttributes(\Magento\Sales\Api\Data\OrderExtensionInterface $extensionAttributes);
 }

@@ -37,7 +37,7 @@ class AttributeGet
         \Magento\Sales\Api\Data\OrderInterface $resultOrder
     )
     {
-        $resultOrder = $this->getAttributes($resultOrder);
+//        $resultOrder = $this->getAttributes($resultOrder);
         return $resultOrder;
     }
 

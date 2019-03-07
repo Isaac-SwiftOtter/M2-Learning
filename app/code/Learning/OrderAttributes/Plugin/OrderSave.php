@@ -25,7 +25,7 @@ class OrderSave
         \Magento\Sales\Api\Data\OrderInterface $resultOrder
     )
     {
-        $resultOrder = $this->saveAttributeData($resultOrder);
+//        $resultOrder = $this->saveAttributeData($resultOrder);
         return $resultOrder;
     }
 
