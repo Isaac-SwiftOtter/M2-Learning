@@ -19,17 +19,19 @@ class AttributeRepository implements AttributeRepositoryInterface
     /**
      * AttributeRepository constructor.
      *
-     * param ResourceModel\Attribute $resourceModel
+     * @param ResourceModel\Attribute $resourceModel
      */
     public function __construct(ResourceModel\Attribute $resourceModel)
     {
         $this->resourceModel = $resourceModel;
     }
 
-    public function save(AttributeInterface $attribute)
+    public function save(AttributeInterface $attributeValues)
     {
-        $this->resourceModel->save($attribute);
-        return $attribute;
+        foreach ($attributeValues as $attribute) {
+            $this->resourceModel->save($attribute);
+            return $attribute;
+        }
     }
 
     public function getById(int $id)

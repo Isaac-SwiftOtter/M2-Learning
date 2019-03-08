@@ -4,6 +4,7 @@
     <preference for="\Learning\OrderAttributes\Api\Data\AttributeInterface" type="\Learning\OrderAttributes\Model\Attribute"/>
     <preference for="\Learning\OrderAttributes\Api\AttributeDefinitionsRepositoryInterface" type="\Learning\OrderAttributes\Model\AttributeDefinitionsRepository"/>
     <preference for="\Learning\OrderAttributes\Api\Data\AttributeDefinitionsInterface" type="\Learning\OrderAttributes\Model\AttributeDefinitions"/>
+    <preference for="\Learning\OrderAttributes\Api\Data\ExtensionAttributeInterface" type="\Learning\OrderAttributes\Model\ExtensionAttribute"/>
 
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
@@ -19,4 +20,11 @@
             <argument name="resourceModel" xsi:type="string">Learning\OrderAttributes\Model\ResourceModel\AttributeDefinitions</argument>
         </arguments>
     </virtualType>
+
+    <type name="Magento\Sales\Api\OrderRepositoryInterface">
+        <plugin name="Learning_OrderAttributes::save_attribute_data" type="Learning\OrderAttributes\Plugin\OrderSave"/>
+    </type>
+    <!--<type name="">-->
+        <!--<plugin name="Learning_OrderAttributes::get_order_attributes" type="Learning\OrderAttributes\Plugin\AttributeGet"/>-->
+    <!--</type>-->
 </config>
