@@ -38,7 +38,7 @@ class ExtensionAttribute extends AbstractExtensibleModel implements ExtensionAtt
     /**
      * @inheritDoc
      */
-    public function setExtensionAttributes(\Magento\Sales\Api\Data\OrderExtensionInterface $extensionAttributes)
+    public function setExtensionAttributes(\Learning\OrderAttributes\Api\Data\ExtensionAttributeExtensionInterface $extensionAttributes)
     {
         return $this->_setExtensionAttributes($extensionAttributes);
     }

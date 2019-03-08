@@ -28,14 +28,14 @@ interface ExtensionAttributeInterface extends \Magento\Framework\Api\ExtensibleD
 
     /**
      * Get existing extension attributes
-     * @return \Magento\Sales\Api\Data\OrderExtensionInterface|null
+     * @return \Learning\OrderAttributes\Api\Data\ExtensionAttributeExtensionInterface|null
      */
     public function getExtensionAttributes();
 
     /**
      * Set extension attribute
-     * @param \Magento\Sales\Api\Data\OrderExtensionInterface|null $extensionAttributes
+     * @param \Learning\OrderAttributes\Api\Data\ExtensionAttributeExtensionInterface|null $extensionAttributes
      * @return $this
      */
-    public function setExtensionAttributes(\Magento\Sales\Api\Data\OrderExtensionInterface $extensionAttributes);
+    public function setExtensionAttributes(\Learning\OrderAttributes\Api\Data\ExtensionAttributeExtensionInterface $extensionAttributes);
 }
