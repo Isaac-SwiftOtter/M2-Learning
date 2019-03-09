@@ -28,17 +28,53 @@ class InstallSchema implements InstallSchemaInterface
                 ['identity' => true, 'unsigned' => true, 'nullable' => false, 'primary' => true],
                 'Entity ID'
             )->addColumn(
-                'attribute_code',
-                \Magento\Framework\Db\Ddl\Table::TYPE_TEXT,
+                'order_id',
+                \Magento\Framework\Db\Ddl\Table::TYPE_INTEGER,
                 null,
-                ['unsigned' => true, 'nullable' => false],
-                'Attribute Code'
+                ['identity' => true, 'unsigned' => true, 'primary' => true],
+                'Order ID'
+            )->addForeignKey(
+                $installer->getFkName(
+                    'learning_custom_order_attributes',
+                    'order_id',
+                    'sales_order',
+                    'entity_id'
+                ),
+                'order_id',
+                $installer->getTable('sales_order'),
+                'entity_id',
+                \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
+            )->addColumn(
+                'attribute_definition',
+                \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                null,
+                ['unsigned' => true, 'nullable' => false, 'primary' => true],
+                'Attribute Definition'
+            )->addForeignKey(
+                $installer->getFkName(
+                    'learning_custom_order_attributes',
+                    'attribute_definition',
+                    'learning_custom_order_attributes_definitions',
+                    'attribute_id'
+                ),
+                'attribute_definition',
+                $installer->getTable('learning_custom_order_attributes_definitions'),
+                'attribute_id',
+                \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
             )->addColumn(
                 'attribute_data',
                 \Magento\Framework\Db\Ddl\Table::TYPE_TEXT,
                 null,
                 ['unsigned' => true, 'nullable' => false],
                 'Attribute Data'
+            )->addIndex(
+                $installer->getIdxName(
+                    'learning_custom_order_attributes',
+                    ['order_id', 'attribute_definition'],
+                    \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE
+                ),
+                ['order_id', 'attribute_definition'],
+                \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE
             );
         $installer->getConnection()->createTable($table);
 
