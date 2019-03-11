@@ -19,28 +19,28 @@ class InstallSchema implements InstallSchemaInterface
         /**
          * Create table 'learning_custom_order_attributes_definitions'
          */
-//        $table = $installer->getConnection()
-//            ->newTable($installer->getTable('learning_custom_order_attributes_definitions')
-//            )->addColumn(
-//                'attribute_id',
-//                \Magento\Framework\Db\Ddl\Table::TYPE_INTEGER,
-//                null,
-//                ['identity' => true, 'unsigned' => true, 'nullable' => false, 'primary' => true],
-//                'Attribute ID'
-//            )->addColumn(
-//                'attribute_code',
-//                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-//                null,
-//                ['unsigned' => true, 'nullable' => false],
-//                'Attribute Code'
-//            )->addColumn(
-//                'attribute_label',
-//                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-//                null,
-//                ['unsigned' => true, 'nullable' => false],
-//                'Attribute Label'
-//            );
-//        $installer->getConnection()->createTable($table);
+        $table = $installer->getConnection()
+            ->newTable($installer->getTable('learning_custom_order_attributes_definitions')
+            )->addColumn(
+                'attribute_id',
+                \Magento\Framework\Db\Ddl\Table::TYPE_INTEGER,
+                null,
+                ['identity' => true, 'unsigned' => true, 'nullable' => false, 'primary' => true],
+                'Attribute ID'
+            )->addColumn(
+                'attribute_code',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                null,
+                ['unsigned' => true, 'nullable' => false],
+                'Attribute Code'
+            )->addColumn(
+                'attribute_label',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                null,
+                ['unsigned' => true, 'nullable' => false],
+                'Attribute Label'
+            );
+        $installer->getConnection()->createTable($table);
 
         /**
          * Create table 'learning_custom_order_attributes'
@@ -61,7 +61,7 @@ class InstallSchema implements InstallSchemaInterface
                 'Order ID'
             )->addColumn(
                 'attribute_definition',
-                \Magento\Framework\DB\Ddl\Table::TYPE_SMALLINT,
+                \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                 null,
                 ['unsigned' => true, 'nullable' => false, 'primary' => true],
                 'Attribute Definition'
@@ -72,8 +72,13 @@ class InstallSchema implements InstallSchemaInterface
                 ['unsigned' => true, 'nullable' => false],
                 'Attribute Data'
             )->addIndex(
-                $installer->getIdxName('learning_custom_order_attributes', ['order_id']),
-                'order_id'
+                $installer->getIdxName(
+                    'learning_custom_order_attributes',
+                    ['order_id', 'attribute_definition'],
+                    \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE
+                ),
+                ['order_id', 'attribute_definition'],
+                ['type' => \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE]
             )->addForeignKey(
                 $installer->getFkName(
                     'learning_custom_order_attributes',
@@ -96,7 +101,7 @@ class InstallSchema implements InstallSchemaInterface
                 $installer->getTable('learning_custom_order_attributes_definitions'),
                 'attribute_id',
                 \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
-            );
+            )->setComment('Custom Order Attribute Data');
         $installer->getConnection()->createTable($table);
 
         $installer->endSetup();
