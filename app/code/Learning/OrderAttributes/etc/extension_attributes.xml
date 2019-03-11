@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
     <extension_attributes for="Magento\Sales\Api\Data\OrderInterface">
-        <attribute code="custom_order_attribute" type="Learning\OrderAttributes\Api\Data\ExtensionAttributeInterface"/>
+        <attribute code="custom_order_attribute" type="Learning\OrderAttributes\Api\Data\OrderExtensionAttributeInterface"/>
+    </extension_attributes>
+    <extension_attributes for="Magento\Quote\Api\Data\ShippingInterface">
+        <attribute code="quote_extension_attribute" type="Learning\OrderAttributes\Api\Data\QuoteExtensionAttributeInterface"/>
     </extension_attributes>
 </config>

@@ -5,6 +5,7 @@
     <preference for="\Learning\OrderAttributes\Api\AttributeDefinitionsRepositoryInterface" type="\Learning\OrderAttributes\Model\AttributeDefinitionsRepository"/>
     <preference for="\Learning\OrderAttributes\Api\Data\AttributeDefinitionsInterface" type="\Learning\OrderAttributes\Model\AttributeDefinitions"/>
     <preference for="\Learning\OrderAttributes\Api\Data\ExtensionAttributeInterface" type="\Learning\OrderAttributes\Model\ExtensionAttribute"/>
+    <preference for="\Learning\OrderAttributes\Api\Data\QuoteExtensionAttributeInterface" type="\Learning\OrderAttributes\Model\QuoteExtensionAttribute"/>
 
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
