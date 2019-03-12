@@ -6,15 +6,15 @@
 
 namespace Learning\OrderAttributes\Model;
 
-use Learning\OrderAttributes\Api\Data\ExtensionAttributeInterface;
+use Learning\OrderAttributes\Api\Data\OrderExtensionAttributeInterface;
 use Magento\Framework\Model\AbstractExtensibleModel;
 
-class ExtensionAttribute extends AbstractExtensibleModel implements ExtensionAttributeInterface
+class OrderExtensionAttribute extends AbstractExtensibleModel implements OrderExtensionAttributeInterface
 {
     /**
      * @inheritDoc
      */
-    public function getAttributes()
+    public function getAttributeDataFromQuote()
     {
         return $this->getData(self::VALUE);
     }
@@ -22,7 +22,7 @@ class ExtensionAttribute extends AbstractExtensibleModel implements ExtensionAtt
     /**
      * @inheritDoc
      */
-    public function setValues($value)
+    public function setOrderId($value)
     {
         return $this->setData(self::VALUE, $value);
     }
@@ -38,7 +38,7 @@ class ExtensionAttribute extends AbstractExtensibleModel implements ExtensionAtt
     /**
      * @inheritDoc
      */
-    public function setExtensionAttributes(\Learning\OrderAttributes\Api\Data\ExtensionAttributeExtensionInterface $extensionAttributes)
+    public function setExtensionAttributes(\Learning\OrderAttributes\Api\Data\OrderExtensionAttributeExtensionInterface $extensionAttributes)
     {
         return $this->_setExtensionAttributes($extensionAttributes);
     }

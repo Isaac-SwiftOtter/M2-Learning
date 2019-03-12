@@ -32,10 +32,7 @@ class OrderSave
     private function saveAttributeData(\Magento\Sales\Api\Data\OrderInterface $order)
     {
         $extensionAttributes = $order->getExtensionAttributes();
-        if (
-            null !== $extensionAttributes &&
-            null !== $extensionAttributes->getAttributes()
-        ) {
+        if (null !== $extensionAttributes && null !== $extensionAttributes->getAttributes()) {
             $attributeValues = $extensionAttributes->getAttributes()->getValue();
             $this->attributeRepository->save($attributeValues);
         }
