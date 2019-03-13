@@ -16,7 +16,7 @@ class QuoteExtensionAttribute extends AbstractExtensibleModel implements QuoteEx
      */
     public function getAttributes()
     {
-
+        $this->getData('attributes');
     }
 
     /**
@@ -24,7 +24,7 @@ class QuoteExtensionAttribute extends AbstractExtensibleModel implements QuoteEx
      */
     public function setValues($attributeData)
     {
-
+        $this->setData('attributes', $attributeData);
     }
 
     /**
@@ -32,7 +32,7 @@ class QuoteExtensionAttribute extends AbstractExtensibleModel implements QuoteEx
      */
     public function getExtensionAttributes()
     {
-
+        return $this->_getExtensionAttributes();
     }
 
 
@@ -41,6 +41,6 @@ class QuoteExtensionAttribute extends AbstractExtensibleModel implements QuoteEx
      */
     public function setExtensionAttributes(\Learning\OrderAttributes\Api\Data\QuoteExtensionAttributeExtensionInterface $extensionAttributes)
     {
-
+        return $this->_setExtensionAttributes($extensionAttributes);
     }
 }

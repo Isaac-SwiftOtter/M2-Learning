@@ -16,7 +16,7 @@ class OrderExtensionAttribute extends AbstractExtensibleModel implements OrderEx
      */
     public function getAttributeDataFromQuote()
     {
-        return $this->getData(self::VALUE);
+        return $this->getData('attributes');
     }
 
     /**
@@ -24,7 +24,7 @@ class OrderExtensionAttribute extends AbstractExtensibleModel implements OrderEx
      */
     public function setOrderId($value)
     {
-        return $this->setData(self::VALUE, $value);
+        return $this->setData('id', $value);
     }
 
     /**

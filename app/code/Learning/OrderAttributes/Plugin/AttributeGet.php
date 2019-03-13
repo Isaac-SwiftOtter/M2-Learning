@@ -7,7 +7,8 @@
 namespace Learning\OrderAttributes\Plugin;
 
 use Learning\OrderAttributes\Model\ResourceModel\Attribute\CollectionFactory;
-use Learning\OrderAttributes\Model\ExtensionAttributeFactory;
+use Learning\OrderAttributes\Model\OrderExtensionAttributeFactory;
+use Magento\Sales\Api\Data\OrderExtensionFactory;
 
 class AttributeGet
 {
@@ -17,19 +18,30 @@ class AttributeGet
     private $collectionFactory;
 
     /**
-     * @var ExtensionAttributeFactory
+     * @var OrderExtensionAttributeFactory
      */
     private $extensionAttributeFactory;
 
     /**
+     * @var OrderExtensionFactory
+     */
+    private $orderExtensionFactory;
+
+    /**
      * AttributeGet constructor.
      * @param CollectionFactory $collectionFactory
-     * @param ExtensionAttributeFactory $extensionAttributeFactory
+     * @param OrderExtensionAttributeFactory $extensionAttributeFactory
+     * @param OrderExtensionFactory $orderExtensionFactory
      */
-    public function __construct(CollectionFactory $collectionFactory, ExtensionAttributeFactory $extensionAttributeFactory)
+    public function __construct(
+        CollectionFactory $collectionFactory,
+        OrderExtensionAttributeFactory $extensionAttributeFactory,
+        OrderExtensionFactory $orderExtensionFactory
+    )
     {
         $this->collectionFactory = $collectionFactory;
         $this->extensionAttributeFactory = $extensionAttributeFactory;
+        $this->orderExtensionFactory = $orderExtensionFactory;
     }
 
     public function afterGet(
@@ -37,7 +49,7 @@ class AttributeGet
         \Magento\Sales\Api\Data\OrderInterface $resultOrder
     )
     {
-        $resultOrder = $this->getAttributes($resultOrder);
+//        $resultOrder = $this->getAttributes($resultOrder);
         return $resultOrder;
     }
 
@@ -53,8 +65,8 @@ class AttributeGet
         $extensionAttributes = $order->getExtensionAttributes();
         $orderExtension = $extensionAttributes ? $extensionAttributes : $this->orderExtensionFactory->create();
         $orderAttribute = $this->extensionAttributeFactory->create();
-        $orderAttribute->setValue($attributeList);
-        $orderExtension->setOrderAttribute($orderAttribute);
+        $orderAttribute->getAttributeDataFromQuote($attributeList);
+        $orderExtension->setCustomOrderData($orderAttribute);
         $order->setExtensionAttributes($orderExtension);
 
         return $order;

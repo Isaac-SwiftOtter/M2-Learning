@@ -11,8 +11,6 @@ namespace Learning\OrderAttributes\Api\Data;
 
 interface QuoteExtensionAttributeInterface extends \Magento\Framework\Api\ExtensibleDataInterface
 {
-    const VALUE = 'value';
-
     /**
      * Get list of attributes
      * @return array|null
