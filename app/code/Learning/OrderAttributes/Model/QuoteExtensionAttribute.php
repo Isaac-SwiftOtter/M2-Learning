@@ -14,9 +14,9 @@ class QuoteExtensionAttribute extends AbstractExtensibleModel implements QuoteEx
     /**
      * @inheritdoc
      */
-    public function getAttributes()
+    public function setAttributes($attributes)
     {
-        $this->getData('attributes');
+        $this->setData(self::VALUE, $attributes);
     }
 
     /**

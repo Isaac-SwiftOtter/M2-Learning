@@ -4,10 +4,6 @@
         <attribute code="custom_order_data" type="Learning\OrderAttributes\Api\Data\OrderExtensionAttributeInterface"/>
     </extension_attributes>
     <extension_attributes for="Magento\Quote\Api\Data\CartInterface">
-        <attribute code="custom_order_attributes" type="Learning\OrderAttributes\Api\Data\QuoteExtensionAttributeInterface">
-            <join reference_table="learning_custom_order_attributes_definitions" reference_field="attribute_code" join_on_field="entity_id">
-                <field>quote</field>
-            </join>
-        </attribute>
+        <attribute code="custom_order_attributes" type="Learning\OrderAttributes\Api\Data\QuoteExtensionAttributeInterface"/>
     </extension_attributes>
 </config>

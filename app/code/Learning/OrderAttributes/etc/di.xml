@@ -22,10 +22,18 @@
         </arguments>
     </virtualType>
 
+    <type name="Magento\Quote\Model\Quote">
+        <plugin name="Learning_OrderAttributes::load_extension_attribute" type="Learning\OrderAttributes\Plugin\LoadExtensionAttribute"/>
+    </type>
+
     <type name="Magento\Sales\Api\OrderRepositoryInterface">
         <plugin name="Learning_OrderAttributes::save_attribute_data" type="Learning\OrderAttributes\Plugin\OrderSave"/>
     </type>
     <!--<type name="">-->
         <!--<plugin name="Learning_OrderAttributes::get_order_attributes" type="Learning\OrderAttributes\Plugin\AttributeGet"/>-->
     <!--</type>-->
+
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="Learning_OrderAttributes::process_attribute_layout" type="Learning\OrderAttributes\Plugin\CustomAttributeLayoutProcessor"/>
+    </type>
 </config>
