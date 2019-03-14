@@ -10,21 +10,21 @@ class DeleteButton extends Button
 {
     public function getButtonData()
     {
-//        if (!$this->getAttributeId()) {
-//            return [];
-//        }
+        if (!$this->getAttributeId()) {
+        return [];
+        }
 
         return [
             'label' => __('Delete Attribute'),
             'class' => 'delete',
             'sort_order' => 20,
             'id' => 'order-attribute-delete-button',
-            'on_click' => sprintf("location.href = '%s';", $this->getUrl('*/*/delete'))
+            'on_click' => sprintf("location.href = '%s';", $this->getDeleteUrl('*/*/delete', 'id'))
         ];
     }
 
     public function getDeleteUrl($deleteAction, $requestIdParam)
     {
-        return $this->getUrl($deleteAction, [$requestIdParam =>$this->getAttributeId()]);
+        return $this->getUrl($deleteAction, [$requestIdParam => $this->getAttributeId()]);
     }
 }

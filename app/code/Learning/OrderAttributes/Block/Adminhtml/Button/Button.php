@@ -9,7 +9,6 @@ namespace Learning\OrderAttributes\Block\Adminhtml\Button;
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 use Magento\Framework\View\Element\UiComponent\Context;
 use Magento\Framework\Registry;
-use Learning\OrderAttributes\Controller\Adminhtml\RegistryConstants;
 
 class Button implements ButtonProviderInterface
 {
@@ -52,7 +51,7 @@ class Button implements ButtonProviderInterface
      */
     public function getAttributeId()
     {
-        $id = $this->registry->registry(RegistryConstants::CURRENT_ATTRIBUTE_ID);
+        $id = $this->context->getRequestParam('id');
         return $id;
     }
 

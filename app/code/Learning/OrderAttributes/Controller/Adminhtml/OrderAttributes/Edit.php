@@ -12,7 +12,7 @@ class Edit extends Attribute
 {
     public function execute()
     {
-        $id = $this->getRequest()->getParam('id', null);
+        $id = $this->getRequest()->getParam('id');
 
         $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
 
