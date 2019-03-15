@@ -35,25 +35,23 @@ define([
         saveShippingInformation: function () {
             var payload;
 
+            debugger;
+
             if (!quote.billingAddress()) {
                 selectBillingAddressAction(quote.shippingAddress());
             }
-
-            debugger;
 
             payload = {
                 addressInformation: {
                     'shipping_address': quote.shippingAddress(),
                     'billing_address': quote.billingAddress(),
                     'shipping_method_code': quote.shippingMethod()['method_code'],
-                    'shipping_carrier_code': quote.shippingMethod()['carrier_code'],
-                    'extension_attributes' : {
-                        'dob_field' : jQuery('[name = "dob"]').val()
-                    }
+                    'shipping_carrier_code': quote.shippingMethod()['carrier_code']
+                    // 'extension_attributes' : {
+                    //     'dob_field' : jQuery('[name = "dob"]').val()
+                    // }
                 }
             };
-
-            debugger;
 
             payloadExtender(payload);
 

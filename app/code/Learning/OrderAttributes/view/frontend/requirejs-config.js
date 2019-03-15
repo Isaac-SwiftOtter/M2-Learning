@@ -1,7 +1,7 @@
 var config = {
     "map" : {
         "*" : {
-            "shipping-save-processor/default" : "js/shipping-save-processor"
+            // "Magento_Checkout/js/model/shipping-save-processor/default" : "js/shipping-save-processor"
         }
     }
 };

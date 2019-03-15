@@ -1,0 +1,31 @@
+<?php
+/**
+ * @by SwiftOtter, Inc., 3/15/19
+ * @website https://swiftotter.com
+ **/
+
+/**
+ * @var Learning\OrderAttributes\ViewModel\AttributesFields\CheckoutPageFields
+ */
+$viewModel = $block->getData('viewModel');
+?>
+
+<div class="custom-order-attributes-additional-data">
+    <h2 class="custom-order-attributes-header">Additional Customer Data</h2>
+
+    <?php foreach ($viewModel->getListOfAttributes() as $attribute) :?>
+        <?php
+        $attributeCode = $attribute['attribute_code'];
+        $attributeLabel = $attribute['attribute_label'];
+        ?>
+        <div class="<?=$attributeCode ?>_field additional-order-data-field">
+            <label class="label" for="<?=$attributeCode ?>">
+                <span><?=$attributeLabel ?></span>
+            </label>
+            <div class="input-field">
+                <input id="<?=$attributeCode ?>" type="text" name="<?=$attributeCode ?>"
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>
+
