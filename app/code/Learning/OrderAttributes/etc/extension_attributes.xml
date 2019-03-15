@@ -6,4 +6,7 @@
     <extension_attributes for="Magento\Quote\Api\Data\CartInterface">
         <attribute code="custom_order_attributes" type="Learning\OrderAttributes\Api\Data\QuoteExtensionAttributeInterface"/>
     </extension_attributes>
+    <extension_attributes for="Magento\Checkout\Api\Data\ShippingInformationInterface">
+        <attribute code="get_data_from_fields" type="string"/>
+    </extension_attributes>
 </config>
