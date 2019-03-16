@@ -41,4 +41,15 @@ class CheckoutPageFields implements ArgumentInterface
         return $attributeList;
     }
 
+    public function getAttributeCodesForFieldIds()
+    {
+        $attributeFieldIds = [];
+        $attributeList = $this->getListOfAttributes();
+
+        foreach ($attributeList as $attribute) {
+            $attributeFieldIds[] = $attribute['attribute_code'] . "_field";
+        }
+
+        return $attributeFieldIds;
+    }
 }

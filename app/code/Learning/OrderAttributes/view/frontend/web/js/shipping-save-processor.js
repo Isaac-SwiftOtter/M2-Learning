@@ -35,7 +35,9 @@ define([
         saveShippingInformation: function () {
             var payload;
 
-            debugger;
+            return function (config) {
+                var orderAttributeFieldData = config.attributeFieldData;
+            }
 
             if (!quote.billingAddress()) {
                 selectBillingAddressAction(quote.shippingAddress());

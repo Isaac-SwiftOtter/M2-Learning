@@ -12,20 +12,33 @@ $viewModel = $block->getData('viewModel');
 
 <div class="custom-order-attributes-additional-data">
     <h2 class="custom-order-attributes-header">Additional Customer Data</h2>
-
-    <?php foreach ($viewModel->getListOfAttributes() as $attribute) :?>
-        <?php
-        $attributeCode = $attribute['attribute_code'];
-        $attributeLabel = $attribute['attribute_label'];
-        ?>
-        <div class="<?=$attributeCode ?>_field additional-order-data-field">
-            <label class="label" for="<?=$attributeCode ?>">
-                <span><?=$attributeLabel ?></span>
-            </label>
-            <div class="input-field">
-                <input id="<?=$attributeCode ?>" type="text" name="<?=$attributeCode ?>"
+<!--    <form class="create-task-form" action="--><?php //echo $block->getUrl('******') ?><!--" method="post">-->
+<!--        --><?php //echo $block->getBlockHtml('formkey') ?>
+        <?php foreach ($viewModel->getListOfAttributes() as $attribute) :?>
+            <?php
+            $attributeCode = $attribute['attribute_code'];
+            $attributeLabel = $attribute['attribute_label'];
+            ?>
+            <div class="<?=$attributeCode ?>_field additional-order-data-field">
+                <label class="label" for="<?=$attributeCode ?>">
+                    <span><?=$attributeLabel ?></span>
+                </label>
+                <div class="input-field">
+                    <input id="<?=$attributeCode ?>" type="text" name="<?=$attributeCode ?>"
+                </div>
             </div>
-        </div>
-    <?php endforeach; ?>
+        <?php endforeach; ?>
+<!--    </form>-->
 </div>
 
+<?php $jsDataFieldIds = $viewModel->getAttributeCodesForFieldIds(); ?>
+
+<script type="text/x-magento-init">
+    {
+        "*" : {
+            "customShippingSaveProcessor" : {
+                "attributeFieldData" : <?php echo \Zend_Json::encode($jsDataFieldIds); ?>
+            }
+        }
+    }
+</script>
