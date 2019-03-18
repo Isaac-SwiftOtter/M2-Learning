@@ -35,10 +35,6 @@ define([
         saveShippingInformation: function () {
             var payload;
 
-            return function (config) {
-                var orderAttributeFieldData = config.attributeFieldData;
-            }
-
             if (!quote.billingAddress()) {
                 selectBillingAddressAction(quote.shippingAddress());
             }
@@ -49,10 +45,12 @@ define([
                     'billing_address': quote.billingAddress(),
                     'shipping_method_code': quote.shippingMethod()['method_code'],
                     'shipping_carrier_code': quote.shippingMethod()['carrier_code']
-                    // 'extension_attributes' : {
-                    //     'dob_field' : jQuery('[name = "dob"]').val()
-                    // }
                 }
+                // additionalCustomerInformation: {
+                //     // 'extension_attributes' : {
+                //     //     'dob_field' : jQuery('[name = "dob"]').val()
+                //     // }d
+                // }
             };
 
             payloadExtender(payload);
@@ -75,5 +73,15 @@ define([
                 }
             );
         }
+
+        // customerInfoFieldConfigId: function (config) {
+        //     console.log(config.attributeFieldDataConfigId);
+        //     return config.attributeFieldDataConfigId;
+        // },
+        //
+        // customerInfoFieldId: function (config) {
+        //     console.log(config.attributeFieldDataId);
+        //     return config.attributeFieldDataId;
+        // }
     };
 });

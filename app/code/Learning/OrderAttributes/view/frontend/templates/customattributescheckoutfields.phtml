@@ -31,13 +31,15 @@ $viewModel = $block->getData('viewModel');
 <!--    </form>-->
 </div>
 
-<?php $jsDataFieldIds = $viewModel->getAttributeCodesForFieldIds(); ?>
+<?php $jsDataFieldIds = $viewModel->getAttributeCodeFieldIds(); ?>
+<?php $jsDataFieldConfigIds = $viewModel->getAttributeCodes(); ?>
 
 <script type="text/x-magento-init">
     {
         "*" : {
             "customShippingSaveProcessor" : {
-                "attributeFieldData" : <?php echo \Zend_Json::encode($jsDataFieldIds); ?>
+                "attributeFieldDataIds" : <?= \Zend_Json::encode($jsDataFieldIds); ?>,
+                "attributeFieldDataConfigIds" : <?=\Zend_Json::encode($jsDataFieldConfigIds); ?>
             }
         }
     }
