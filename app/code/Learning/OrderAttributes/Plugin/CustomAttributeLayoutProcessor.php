@@ -27,43 +27,43 @@ class CustomAttributeLayoutProcessor
 
     public function afterProcess(\Magento\Checkout\Block\Checkout\LayoutProcessor $subject, array $jsLayout)
     {
-//        $attributeList = [];
-//        $attributes = $this->collectionFactory->create();
-//        foreach ($attributes->getItems() as $attribute) {
-//            $attributeList[] = $attribute;
-//        }
-//
-//        foreach ($attributeList as $attribute) {
-//            $attributeId = $attribute->getData('attribute_id');
-//            $attributeCode = $attribute->getData('attribute_code');
-//            $attributeLabel = $attribute->getData('attribute_label');
-//
-//            $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']['shippingAddress']['children']['before-form']['children']
-//            ['custom_field_' . $attributeCode] = [
-//                'component' => 'Magento_Ui/js/form/element/abstract',
-//                'config' => [
-//                    'customScope' => 'shippingAddress',
-//                    'template' => 'ui/form/field',
-//                    'elementTmpl' => 'ui/form/element/input',
-//                    'id' => $attributeCode . '_field'
-//                ],
-//                'dataScope' => 'shippingAddress.custom_field_' . $attributeCode,
-//                'label' => __($attributeLabel),
-//                'provider' => 'checkoutProvider',
-//                'visible' => true,
-//                'validation' => [
-//                    'required-entry' => true,
-//                    'max_text_length' => 200,
-//                    'min_text_length' => 1
-//                ],
-//                'sortOrder' => '1500',
-//                'options' => [],
-//                'customEntry' => true,
-//                'id' => $attributeCode,
-//                'attribute_id' => $attributeId
-//
-//            ];
-//        }
+        $attributeList = [];
+        $attributes = $this->collectionFactory->create();
+        foreach ($attributes->getItems() as $attribute) {
+            $attributeList[] = $attribute;
+        }
+
+        foreach ($attributeList as $index => $attribute) {
+            $attributeId = $attribute->getData('attribute_id');
+            $attributeCode = $attribute->getData('attribute_code');
+            $attributeLabel = $attribute->getData('attribute_label');
+
+            $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']['custom-order-attributes-fields']['children']['additional-customer-data-fieldset']['children']
+            ['text_field_' . $attributeCode] = [
+                'component' => 'Magento_Ui/js/form/element/abstract',
+                'config' => [
+                    'customScope' => 'shippingAddress',
+                    'template' => 'ui/form/field',
+                    'elementTmpl' => 'ui/form/element/input',
+                    'id' => $attributeCode . '_field'
+                ],
+                'dataScope' => 'shippingAddress.custom_field_' . $attributeCode,
+                'label' => __($attributeLabel),
+                'provider' => 'checkoutProvider',
+                'visible' => true,
+                'validation' => [
+                    'required-entry' => true,
+                    'max_text_length' => 200,
+                    'min_text_length' => 1
+                ],
+                'sortOrder' => ($index * 10),
+                'options' => [],
+                'customEntry' => true,
+                'id' => $attributeCode,
+                'attribute_id' => $attributeId
+
+            ];
+        }
 
         return $jsLayout;
     }

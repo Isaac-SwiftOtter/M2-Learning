@@ -72,16 +72,16 @@ define([
                     fullScreenLoader.stopLoader();
                 }
             );
-        }
+        },
 
-        // customerInfoFieldConfigId: function (config) {
-        //     console.log(config.attributeFieldDataConfigId);
-        //     return config.attributeFieldDataConfigId;
-        // },
-        //
-        // customerInfoFieldId: function (config) {
-        //     console.log(config.attributeFieldDataId);
-        //     return config.attributeFieldDataId;
-        // }
+        customerInfoFieldConfigId: function (config) {
+            console.log(config.attributeFieldDataConfigId);
+            return config.attributeFieldDataConfigId;
+        },
+
+        customerInfoFieldId: function (config) {
+            console.log(config.attributeFieldDataId);
+            return config.attributeFieldDataId;
+        }
     };
 });
