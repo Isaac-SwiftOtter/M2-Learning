@@ -1,15 +1,14 @@
 <?php
 /**
- * @by SwiftOtter, Inc., 3/15/19
+ * @by SwiftOtter, Inc., 3/20/19
  * @website https://swiftotter.com
  **/
 
-namespace Learning\OrderAttributes\ViewModel\AttributesFields;
+namespace Learning\OrderAttributes\Helper;
 
-use Magento\Framework\View\Element\Block\ArgumentInterface;
 use Learning\OrderAttributes\Model\ResourceModel\AttributeDefinitions\CollectionFactory;
 
-class CheckoutPageFields implements ArgumentInterface
+class Attributes
 {
     /**
      * @var CollectionFactory

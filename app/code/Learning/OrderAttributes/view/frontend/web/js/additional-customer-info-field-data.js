@@ -4,14 +4,22 @@ define([
     'use strict';
 
     return {
-        customerInfoFieldConfigId: function (config) {
-            console.log(config.attributeFieldDataConfigId);
+        customerAttributeFieldCodes: function (config) {
+            console.log(config.attributeFieldIds);
             return config.attributeFieldDataConfigId;
         },
 
-        customerInfoFieldId: function (config) {
-            console.log(config.attributeFieldDataId);
+        customerAttributeFieldNames: function (config) {
+            console.log(config.attributeFieldNames);
             return config.attributeFieldDataId;
         }
+
+        // configValueAttributeFieldNames : function (config) {
+        //     return config.attributeFieldNames;
+        // },
+        //
+        // configValueAttributeFieldCodes : function (config) {
+        //     return config.attributeFieldCodes
+        // }
     }
 });

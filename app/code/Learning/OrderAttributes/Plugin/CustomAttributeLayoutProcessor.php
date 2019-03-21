@@ -38,8 +38,8 @@ class CustomAttributeLayoutProcessor
             $attributeCode = $attribute->getData('attribute_code');
             $attributeLabel = $attribute->getData('attribute_label');
 
-            $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']['custom-order-attributes-fields']['children']['additional-customer-data-fieldset']['children']
-            ['text_field_' . $attributeCode] = [
+            $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']['shippingAddress']['children']['before-form']['children']
+            ['custom_field_' . $attributeCode] = [
                 'component' => 'Magento_Ui/js/form/element/abstract',
                 'config' => [
                     'customScope' => 'shippingAddress',

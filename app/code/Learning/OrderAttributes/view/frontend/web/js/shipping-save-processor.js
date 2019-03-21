@@ -13,7 +13,8 @@ define([
     'Magento_Checkout/js/model/error-processor',
     'Magento_Checkout/js/model/full-screen-loader',
     'Magento_Checkout/js/action/select-billing-address',
-    'Magento_Checkout/js/model/shipping-save-processor/payload-extender'
+    'Magento_Checkout/js/model/shipping-save-processor/payload-extender',
+    'jquery'
 ], function (
     ko,
     quote,
@@ -24,7 +25,8 @@ define([
     errorProcessor,
     fullScreenLoader,
     selectBillingAddressAction,
-    payloadExtender
+    payloadExtender,
+    $
 ) {
     'use strict';
 
@@ -49,10 +51,10 @@ define([
                 // additionalCustomerInformation: {
                 //     // 'extension_attributes' : {
                 //     //     'dob_field' : jQuery('[name = "dob"]').val()
-                //     // }d
+                //     // }
                 // }
             };
-
+debugger;
             payloadExtender(payload);
 
             fullScreenLoader.startLoader();
@@ -74,14 +76,14 @@ define([
             );
         },
 
-        customerInfoFieldConfigId: function (config) {
-            console.log(config.attributeFieldDataConfigId);
-            return config.attributeFieldDataConfigId;
+        customerInfoFieldNames: function (config) {
+            console.log(config.attributeFieldNames.toString());
+            return config.attributeFieldNames;
         },
 
-        customerInfoFieldId: function (config) {
-            console.log(config.attributeFieldDataId);
-            return config.attributeFieldDataId;
+        customerInfoFieldCodes: function (config) {
+            console.log(config.attributeFieldCodes.toString());
+            return config.attributeFieldCodes;
         }
     };
 });
