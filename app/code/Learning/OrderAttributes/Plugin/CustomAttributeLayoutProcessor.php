@@ -7,6 +7,7 @@
 namespace Learning\OrderAttributes\Plugin;
 
 use Learning\OrderAttributes\Model\ResourceModel\AttributeDefinitions\CollectionFactory;
+use Learning\OrderAttributes\Helper\Attributes;
 
 class CustomAttributeLayoutProcessor
 {
@@ -16,27 +17,30 @@ class CustomAttributeLayoutProcessor
     private $collectionFactory;
 
     /**
+     * @var Attributes
+     */
+    private $attributeHelper;
+
+    /**
      * CustomAttributeLayoutProcessor constructor
      * @param CollectionFactory $collectionFactory
+     * @param Attributes $attributeHelper
      */
-    public function __construct(CollectionFactory $collectionFactory)
+    public function __construct(CollectionFactory $collectionFactory, Attributes $attributeHelper)
     {
         $this->collectionFactory = $collectionFactory;
+        $this->attributeHelper = $attributeHelper;
     }
 
 
     public function afterProcess(\Magento\Checkout\Block\Checkout\LayoutProcessor $subject, array $jsLayout)
     {
-        $attributeList = [];
-        $attributes = $this->collectionFactory->create();
-        foreach ($attributes->getItems() as $attribute) {
-            $attributeList[] = $attribute;
-        }
+        $attributeList = $this->attributeHelper->getListOfAttributes();
 
         foreach ($attributeList as $index => $attribute) {
-            $attributeId = $attribute->getData('attribute_id');
-            $attributeCode = $attribute->getData('attribute_code');
-            $attributeLabel = $attribute->getData('attribute_label');
+            $attributeId = $attribute['attribute_id'];
+            $attributeCode = $attribute['attribute_code'];
+            $attributeLabel = $attribute['attribute_label'];
 
             $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']['shippingAddress']['children']['before-form']['children']
             ['custom_field_' . $attributeCode] = [

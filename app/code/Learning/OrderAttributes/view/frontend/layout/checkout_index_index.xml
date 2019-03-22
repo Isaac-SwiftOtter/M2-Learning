@@ -1,13 +1,6 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <!--<referenceContainer name="content">-->
-            <!--<block name="custom.attributes.checkout.fields" template="Learning_OrderAttributes::customattributescheckoutfields.phtml">-->
-                <!--<arguments>-->
-                    <!--<argument name="viewModel" xsi:type="object">Learning\OrderAttributes\ViewModel\AttributesFields\CheckoutPageFields</argument>-->
-                <!--</arguments>-->
-            <!--</block>-->
-        <!--</referenceContainer>-->
         <referenceBlock name="checkout.root">
             <arguments>
                 <argument name="jsLayout" xsi:type="array">
@@ -23,15 +16,7 @@
                                                         <item name="before-form" xsi:type="array">
                                                             <item name="children" xsi:type="array">
                                                                 <item name="custom-order-attributes-fields" xsi:type="array">
-                                                                    <!--<item name="component" xsi:type="string">Learning_OrderAttributes/js/view/order-attributes-view</item>-->
-                                                                    <!--<item name="sortOrder" xsi:type="string">10</item>-->
                                                                     <item name="children" xsi:type="array">
-                                                                        <item name="additional-customer-data-fieldset" xsi:type="array">
-                                                                            <item name="component" xsi:type="string">uiComponent</item>
-                                                                            <!--<item name="displayArea" xsi:type="string">additional-customer-data-fields</item>-->
-                                                                            <item name="children" xsi:type="array">
-                                                                            </item>
-                                                                        </item>
                                                                     </item>
                                                                 </item>
                                                             </item>

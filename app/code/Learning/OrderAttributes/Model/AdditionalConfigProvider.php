@@ -26,7 +26,7 @@ class AdditionalConfigProvider
 
     public function getConfig()
     {
-        $output['custom_order_attributes_field_names'] = $this->attributesHelper->getAttributeFieldNames();
+        $output['custom_order_attributes_codes'] = $this->attributesHelper->getAttributeCodes();
         return $output;
     }
 

@@ -46,15 +46,11 @@ define([
                     'shipping_address': quote.shippingAddress(),
                     'billing_address': quote.billingAddress(),
                     'shipping_method_code': quote.shippingMethod()['method_code'],
-                    'shipping_carrier_code': quote.shippingMethod()['carrier_code']
+                    'shipping_carrier_code': quote.shippingMethod()['carrier_code'],
+                    'custom_order_attributes' : this.orderAttributesFieldsData()
                 }
-                // additionalCustomerInformation: {
-                //     // 'extension_attributes' : {
-                //     //     'dob_field' : jQuery('[name = "dob"]').val()
-                //     // }
-                // }
             };
-debugger;
+
             payloadExtender(payload);
 
             fullScreenLoader.startLoader();
@@ -76,14 +72,18 @@ debugger;
             );
         },
 
-        customerInfoFieldNames: function (config) {
-            console.log(config.attributeFieldNames.toString());
-            return config.attributeFieldNames;
-        },
+        orderAttributesFieldsData: function () {
+            var orderAttributesFieldValues = window.checkoutConfig.custom_order_attributes_codes;
+            var fieldDataArray = [];
 
-        customerInfoFieldCodes: function (config) {
-            console.log(config.attributeFieldCodes.toString());
-            return config.attributeFieldCodes;
+            orderAttributesFieldValues.forEach(function (code) {
+               var fieldName = "custom_field_" + code;
+               fieldDataArray.push(
+                   code + " : " + jQuery('[name = ' + fieldName + ']').val()
+               )
+            });
+
+            return fieldDataArray;
         }
     };
 });

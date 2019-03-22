@@ -9,6 +9,7 @@ namespace Learning\OrderAttributes\Plugin;
 use Learning\OrderAttributes\Model\ResourceModel\Attribute\CollectionFactory;
 use Learning\OrderAttributes\Model\OrderExtensionAttributeFactory;
 use Magento\Sales\Api\Data\OrderExtensionFactory;
+use Learning\OrderAttributes\Helper\Attributes;
 
 class AttributeGet
 {
@@ -28,20 +29,28 @@ class AttributeGet
     private $orderExtensionFactory;
 
     /**
+     * @var Attributes
+     */
+    private $attributeHelper;
+
+    /**
      * AttributeGet constructor.
      * @param CollectionFactory $collectionFactory
      * @param OrderExtensionAttributeFactory $extensionAttributeFactory
      * @param OrderExtensionFactory $orderExtensionFactory
+     * @param Attributes $attributeHelper
      */
     public function __construct(
         CollectionFactory $collectionFactory,
         OrderExtensionAttributeFactory $extensionAttributeFactory,
-        OrderExtensionFactory $orderExtensionFactory
+        OrderExtensionFactory $orderExtensionFactory,
+        Attributes $attributeHelper
     )
     {
         $this->collectionFactory = $collectionFactory;
         $this->extensionAttributeFactory = $extensionAttributeFactory;
         $this->orderExtensionFactory = $orderExtensionFactory;
+        $this->attributeHelper = $attributeHelper;
     }
 
     public function afterGet(
@@ -55,12 +64,7 @@ class AttributeGet
 
     private function getAttributes(\Magento\Sales\Api\Data\OrderInterface $order)
     {
-        $attributeList = [];
-        $attributes = $this->collectionFactory->create();
-
-        foreach ($attributes->getItems() as $attribute) {
-            $attributeList[] = [$attribute];
-        }
+        $attributeList = $this->attributeHelper->getListOfAttributes();
 
         $extensionAttributes = $order->getExtensionAttributes();
         $orderExtension = $extensionAttributes ? $extensionAttributes : $this->orderExtensionFactory->create();
