@@ -14,7 +14,7 @@ define([
     'Magento_Checkout/js/model/full-screen-loader',
     'Magento_Checkout/js/action/select-billing-address',
     'Magento_Checkout/js/model/shipping-save-processor/payload-extender',
-    'jquery'
+    'Learning_OrderAttributes/js/order_attribute_field_data'
 ], function (
     ko,
     quote,
@@ -26,7 +26,7 @@ define([
     fullScreenLoader,
     selectBillingAddressAction,
     payloadExtender,
-    $
+    attributeFieldData
 ) {
     'use strict';
 
@@ -47,12 +47,14 @@ define([
                     'billing_address': quote.billingAddress(),
                     'shipping_method_code': quote.shippingMethod()['method_code'],
                     'shipping_carrier_code': quote.shippingMethod()['carrier_code'],
-                    'custom_order_attributes' : this.orderAttributesFieldsData()
+                    'extension_attributes' : {
+                        'order_attribute_field_data' : attributeFieldData.orderAttributesFieldsData()
+                    }
                 }
             };
 
-            payloadExtender(payload);
-
+            // payloadExtender(payload);
+debugger;
             fullScreenLoader.startLoader();
 
             return storage.post(
@@ -70,20 +72,6 @@ define([
                     fullScreenLoader.stopLoader();
                 }
             );
-        },
-
-        orderAttributesFieldsData: function () {
-            var orderAttributesFieldValues = window.checkoutConfig.custom_order_attributes_codes;
-            var fieldDataArray = [];
-
-            orderAttributesFieldValues.forEach(function (code) {
-               var fieldName = "custom_field_" + code;
-               fieldDataArray.push(
-                   code + " : " + jQuery('[name = ' + fieldName + ']').val()
-               )
-            });
-
-            return fieldDataArray;
         }
     };
 });
