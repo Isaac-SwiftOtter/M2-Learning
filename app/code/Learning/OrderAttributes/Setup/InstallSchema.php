@@ -104,6 +104,32 @@ class InstallSchema implements InstallSchemaInterface
             )->setComment('Custom Order Attribute Data');
         $installer->getConnection()->createTable($table);
 
+        /**
+         * Add "order_attribute_field_data" column to "quote" table
+         */
+        $installer->getConnection()->addColumn(
+            $installer->getTable('quote'),
+            'order_attribute_field_data',
+            [
+                'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                'length' => 200,
+                'comment' => 'Order Attribute Customer Data'
+            ]
+        );
+
+        /**
+         * Add "order_attribute_field_data" column to "sales_order" table
+         */
+        $installer->getConnection()->addColumn(
+            $installer->getTable('sales_order'),
+            'order_attribute_field_data',
+            [
+                'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                'length' => 200,
+                'comment' => 'Order Attribute Customer Data'
+            ]
+        );
+
         $installer->endSetup();
     }
 }

@@ -53,8 +53,6 @@ define([
                 }
             };
 
-            // payloadExtender(payload);
-debugger;
             fullScreenLoader.startLoader();
 
             return storage.post(
