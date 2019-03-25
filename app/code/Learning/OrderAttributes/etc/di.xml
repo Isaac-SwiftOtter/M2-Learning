@@ -29,9 +29,13 @@
         <plugin name="Learning_OrderAttributes::quote_save_attribute_data" type="Learning\OrderAttributes\Plugin\QuoteDataSave"/>
     </type>
 
-    <type name="Magento\Sales\Api\OrderRepositoryInterface">
-        <plugin name="Learning_OrderAttributes::save_attribute_data" type="Learning\OrderAttributes\Plugin\OrderSave"/>
+    <type name="Magento\Sales\Api\OrderManagementInterface">
+        <plugin name="Learning_OrderAttributes::get_order_id_for_attributes" type="Learning\OrderAttributes\Plugin\OrderAttributeInfo"/>
     </type>
+
+    <!--<type name="Magento\Sales\Api\OrderRepositoryInterface">-->
+        <!--<plugin name="Learning_OrderAttributes::save_attribute_data" type="Learning\OrderAttributes\Plugin\OrderSave"/>-->
+    <!--</type>-->
     <!--<type name="">-->
         <!--<plugin name="Learning_OrderAttributes::get_order_attributes" type="Learning\OrderAttributes\Plugin\AttributeGet"/>-->
     <!--</type>-->

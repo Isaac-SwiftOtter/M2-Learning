@@ -26,12 +26,10 @@ class AttributeRepository implements AttributeRepositoryInterface
         $this->resourceModel = $resourceModel;
     }
 
-    public function save(AttributeInterface $attributeValues)
+    public function save(AttributeInterface $attribute)
     {
-        foreach ($attributeValues as $attribute) {
-            $this->resourceModel->save($attribute);
-            return $attribute;
-        }
+        $this->resourceModel->save($attribute);
+        return $attribute;
     }
 
     public function getById(int $id)

@@ -60,11 +60,11 @@ class InstallSchema implements InstallSchemaInterface
                 ['unsigned' => true, 'nullable' => false, 'primary' => true],
                 'Order ID'
             )->addColumn(
-                'attribute_definition',
-                \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                'attribute_label',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                 null,
-                ['unsigned' => true, 'nullable' => false, 'primary' => true],
-                'Attribute Definition'
+                ['unsigned' => true, 'nullable' => false],
+                'Attribute Label'
             )->addColumn(
                 'attribute_data',
                 \Magento\Framework\Db\Ddl\Table::TYPE_TEXT,
@@ -74,10 +74,10 @@ class InstallSchema implements InstallSchemaInterface
             )->addIndex(
                 $installer->getIdxName(
                     'learning_custom_order_attributes',
-                    ['order_id', 'attribute_definition'],
+                    ['order_id'],
                     \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE
                 ),
-                ['order_id', 'attribute_definition'],
+                ['order_id'],
                 ['type' => \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE]
             )->addForeignKey(
                 $installer->getFkName(
@@ -90,17 +90,6 @@ class InstallSchema implements InstallSchemaInterface
                 $installer->getTable('sales_order'),
                 'entity_id',
                 \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
-            )->addForeignKey(
-                $installer->getFkName(
-                    'learning_custom_order_attributes',
-                    'attribute_definition',
-                    'learning_custom_order_attributes_definitions',
-                    'attribute_id'
-                ),
-                'attribute_definition',
-                $installer->getTable('learning_custom_order_attributes_definitions'),
-                'attribute_id',
-                \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
             )->setComment('Custom Order Attribute Data');
         $installer->getConnection()->createTable($table);
 
@@ -112,7 +101,6 @@ class InstallSchema implements InstallSchemaInterface
             'order_attribute_field_data',
             [
                 'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-                'length' => 200,
                 'comment' => 'Order Attribute Customer Data'
             ]
         );
@@ -125,7 +113,6 @@ class InstallSchema implements InstallSchemaInterface
             'order_attribute_field_data',
             [
                 'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-                'length' => 200,
                 'comment' => 'Order Attribute Customer Data'
             ]
         );

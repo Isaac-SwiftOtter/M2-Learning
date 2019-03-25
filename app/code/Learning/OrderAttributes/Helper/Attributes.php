@@ -40,6 +40,18 @@ class Attributes
         return $attributeList;
     }
 
+    public function getAttributeLabels()
+    {
+        $attributeLabels = [];
+        $attributeList = $this->getListOfAttributes();
+
+        foreach ($attributeList as $attribute) {
+            $attributeLabels = [$attribute['attribute_code'] => $attribute['attribute_label']];
+        }
+
+        return $attributeLabels;
+    }
+
     public function getAttributeCodes()
     {
         $attributeCodes = [];
@@ -62,5 +74,17 @@ class Attributes
         }
 
         return $attributeFieldNames;
+    }
+
+    public function attributeFieldDataToString($data)
+    {
+        $dataString = implode(" // ", $data);
+        return $dataString;
+    }
+
+    public function attributeFieldDataToArray($data)
+    {
+        $dataArray = explode(" // ", $data);
+        return $dataArray;
     }
 }

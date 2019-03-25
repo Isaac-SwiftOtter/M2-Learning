@@ -58,7 +58,7 @@ class QuoteDataSave
         \Magento\Checkout\Api\Data\ShippingInformationInterface $addressInformation
     )
     {
-        $addressExtensionAttributes = $addressInformation->getExtensionAttributes()->getOrderAttributeFieldData();
+        $addressExtensionAttributes = $this->attributeHelper->attributeFieldDataToString($addressInformation->getExtensionAttributes()->getOrderAttributeFieldData());
 
         if ($addressExtensionAttributes) {
             $quote = $this->quoteRepository->getActive($cartId);
