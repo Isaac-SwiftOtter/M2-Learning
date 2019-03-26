@@ -46,7 +46,7 @@ class Attributes
         $attributeList = $this->getListOfAttributes();
 
         foreach ($attributeList as $attribute) {
-            $attributeLabels = [$attribute['attribute_code'] => $attribute['attribute_label']];
+            $attributeLabels[$attribute['attribute_code']] = $attribute['attribute_label'];
         }
 
         return $attributeLabels;

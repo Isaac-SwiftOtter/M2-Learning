@@ -57,28 +57,23 @@ class InstallSchema implements InstallSchemaInterface
                 'order_id',
                 \Magento\Framework\Db\Ddl\Table::TYPE_INTEGER,
                 null,
-                ['unsigned' => true, 'nullable' => false, 'primary' => true],
+                ['unsigned' => true, 'nullable' => false, 'default' => '0'],
                 'Order ID'
             )->addColumn(
                 'attribute_label',
                 \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                 null,
-                ['unsigned' => true, 'nullable' => false],
+                [],
                 'Attribute Label'
             )->addColumn(
                 'attribute_data',
                 \Magento\Framework\Db\Ddl\Table::TYPE_TEXT,
                 null,
-                ['unsigned' => true, 'nullable' => false],
+                [],
                 'Attribute Data'
             )->addIndex(
-                $installer->getIdxName(
-                    'learning_custom_order_attributes',
-                    ['order_id'],
-                    \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE
-                ),
-                ['order_id'],
-                ['type' => \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE]
+                $installer->getIdxName('learning_custom_order_attributes', ['order_id']),
+                ['order_id']
             )->addForeignKey(
                 $installer->getFkName(
                     'learning_custom_order_attributes',

@@ -48,9 +48,7 @@ class SaveAttributeData implements ObserverInterface
         $attributeArray = $this->attributeHelper->attributeFieldDataToArray($observer->getData('data'));
 
         foreach ($attributeArray as $attributeList) {
-            $attributeData = explode(" // ", $attributeList);
-            $attributeCode = $attributeData[0];
-            $attributeCustomerInput = $attributeData[1];
+            list($attributeCode, $attributeCustomerInput) = explode(" : ", $attributeList, 2);
 
             $attributeLabelArray = $this->attributeHelper->getAttributeLabels();
             $attributeLabel = $attributeLabelArray[$attributeCode];

@@ -29,7 +29,7 @@ class OrderSave
         return $resultOrder;
     }
 
-    private function saveAttributeData(\Magento\Sales\Api\Data\OrderInterface $order)
+    private function saveAttributeData(\Magento\Sales\Api\OrderManagementInterface $subject, $order)
     {
         $extensionAttributes = $order->getExtensionAttributes();
         if (null !== $extensionAttributes && null !== $extensionAttributes->getAttributes()) {
