@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceContainer name="order_additional_info">
+        <block name="order_attribute_custom_info" template="Learning_OrderAttributes::orderattributecustomerdata.phtml">
+            <arguments>
+                <argument name="viewModel" xsi:type="object">Learning\OrderAttributes\ViewModel\CustomerData</argument>
+            </arguments>
+        </block>
+    </referenceContainer>
+</page>

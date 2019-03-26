@@ -1,0 +1,25 @@
+<?php
+/**
+ * @by SwiftOtter, Inc., 3/26/19
+ * @website https://swiftotter.com
+ **/
+
+/**
+ * @var Learning\OrderAttributes\ViewModel\CustomerData $viewModel
+ */
+$viewModel = $block->getData('viewModel');
+$orderAttributeData = $tmpBlock->getOrder()->getData('order_attribute_field_data');
+?>
+
+<section class="admin__page-section order-attributes-data">
+    <div class="admin__page-section-title">
+        <span class="title"><?= __('Order Attributes Customer Data') ?></span>
+    </div>
+    <div class="admin__page-section-content">
+        <div class="admin__page-section-item">
+            <?php foreach ($viewModel->attributeData($orderAttributeData) as $attribute): ?>
+                <p class="order-attributes-additional-customer-data"><?= __($attribute); ?></p>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
